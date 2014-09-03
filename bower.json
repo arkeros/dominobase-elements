@@ -1,0 +1,26 @@
+{
+    "name": "dominobase-elements",
+    "private": true,
+    "description": "Awesome stuff, the modular and interoperable way",
+    "keywords": [
+        "polymer",
+        "web-components"
+    ],
+    "version": "0.0.0",
+    "main": "dominobase-app.html",
+    "ignore": [
+        "**/.*",
+        "bower_components",
+        "node_modules",
+        "build",
+        "gulpfile.js",
+        "package.json"
+    ],
+    "dependencies": {
+        "platform": "Polymer/platform#*",
+        "polymer": "*",
+        "dominoes-node": "arkeros/dominoes-node#master",
+        "core-elements": "Polymer/core-elements#*",
+        "paper-elements": "Polymer/paper-elements#*"
+    }
+}

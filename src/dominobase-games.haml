@@ -1,0 +1,37 @@
+%link(href="../polymer/polymer.html" rel="import")
+
+%polymer-element(name="dominobase-games" attributes="games" constructor="DominobaseGames")
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="styles/dominobase-games.css")
+        / endsmoosh
+        #content(vertical=true layout=true)
+            %h2 Top started games
+            %div(horizontal=true layout=true wrap=true around-justified=true) 
+                %template(repeat="{{game in games}}")
+                    .card 
+                        / %object.thumbnail(data="images/params.svg?player0= https%3A%2F%2Fscontent-a-mad.xx.fbcdn.net%2Fhphotos-frc3%2Ft1.0-9%2F1234510_445985318852535_1629685167_n.jpg&player1=https%3A%2F%2Flh5.googleusercontent.com%2F-eCpUySsQ6cw%2FAAAAAAAAAAI%2FAAAAAAAAAAA%2Fc-7EwF23tE4%2Fs128-c-k%2Fphoto.jpg" type="image/svg+xml")  
+                        / %object.thumbnail(data="images/params.svg?player0={{game.players[0].avatar}}&player1={{game.players[1].avatar}}" type="image/svg+xml")  
+                        %object.thumbnail(data="{{game.avatar}}" type="image/svg+xml")  
+                        / http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_encodeuricomponent
+                        %a.title(href="#") 
+                            {{game.players[0].name}} vs {{game.players[1].name}}
+                        %core-tooltip(label="Players")
+                            %span 
+                                %core-icon(icon="social:person")
+                                {{game.players.length}}
+                        %core-tooltip(label="Turn duration")
+                            %span 
+                                %core-icon(icon="device:timer")
+                                {{game.ply_duration}}
+                        %core-tooltip(label="Views")
+                            %span 
+                                %core-icon(icon="visibility")
+                                {{game.views}}
+                        %core-tooltip(label="Favorited")
+                            %span 
+                                %core-icon(icon="favorite")
+                                {{game.favorites}}
+    / smoosh
+    %script(src="scripts/dominobase-games.js")
+    / endsmoosh

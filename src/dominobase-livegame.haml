@@ -1,0 +1,43 @@
+%link(href="../polymer/polymer.html" rel="import")
+%link(href="../dominoes-node/dominoes-node.html" rel="import")
+%link(href="../paper-input/paper-input.html" rel="import")
+
+%polymer-element(name="dominobase-livegame" attributes="game" constructor="DominoBaseLiveGame")
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="styles/dominobase-livegame.css")
+        / endsmoosh
+        %div(layout=true horizontal=true)
+            #leftbar(layout=true vertical=true flex=true)
+                .aspect-ratio169
+                    %dominoes-node(board='[{"left":0, "right": 1},{"left":2, "right": 3},{"left":4, "right": 5},{"left":6, "right": 7},{"left":8, "right": 9},{"left":0, "right": 1},{"left":2, "right": 3},{"left":4, "right": 5},{"left":6, "right": 7},{"left":8, "right": 9}]')  
+                .content
+                    %h1 Final del campeonato mundial
+            #rightbar(layout=true vertical=true)
+                #chat.content(layout=true vertical=true)
+                    #messages(flex=true)
+                        .message(layout=true horizontal=true)
+                            %a.thumbnail(href="#") 
+                                %img(src="https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg")
+                            .inline
+                                %a.author(href="#") 
+                                    arkeros
+                                hola
+                        .message(layout=true horizontal=true)
+                            %a.thumbnail(href="#") 
+                                %img(src="http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/1939840_520061504778249_1525149753_a.jpg")
+                            .inline(flex=true)
+                                %a.author(href="#") hopefulhazel
+                                eii
+                        .message(layout=true horizontal=true)
+                            %a.thumbnail(href="#") 
+                                %img(src="https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg")
+                            .inline(flex=true)
+                                %a.author(href="#")='arkeros'
+                                voy a ganar jeje
+                    %paper-input#input(multiline=true maxRows="3" label="Write a message...")
+                #log.content(flex=true)
+                    eventos del juego...
+    / smoosh
+    %script(src="scripts/dominobase-livegame.js")
+    / endsmoosh

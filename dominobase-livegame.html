@@ -1,0 +1,114 @@
+<link href='../polymer/polymer.html' rel='import'>
+<link href='../dominoes-node/dominoes-node.html' rel='import'>
+<link href='../paper-input/paper-input.html' rel='import'>
+<polymer-element attributes='game' constructor='DominoBaseLiveGame' name='dominobase-livegame'>
+  <template>
+    <style>#leftbar:last, #rightbar:last {
+  margin-bottom: 0; }
+
+#leftbar {
+  margin-right: 10px; }
+  #leftbar .content {
+    margin-top: 10px;
+    margin-bottom: 0; }
+
+#rightbar {
+  width: 360px; }
+
+.aspect-ratio169 {
+  width: 100%;
+  display: inline-block;
+  position: relative; }
+  .aspect-ratio169:after {
+    padding-top: 56.25%;
+    display: block;
+    content: ""; }
+
+#chat {
+  height: 480px; }
+  #chat .message {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.5em; }
+    #chat .message .author {
+      font-weight: bold;
+      margin-right: 0.5em; }
+    #chat .message .thumbnail {
+      margin-right: 0.5em; }
+      #chat .message .thumbnail img {
+        width: 1.5em;
+        height: 1.5em; }
+  #chat #input {
+    padding-bottom: 0; }
+
+dominoes-node {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #071; }
+</style>
+    <div horizontal layout>
+      <div flex id='leftbar' layout vertical>
+        <div class='aspect-ratio169'>
+          <dominoes-node board='[{"left":0, "right": 1},{"left":2, "right": 3},{"left":4, "right": 5},{"left":6, "right": 7},{"left":8, "right": 9},{"left":0, "right": 1},{"left":2, "right": 3},{"left":4, "right": 5},{"left":6, "right": 7},{"left":8, "right": 9}]'></dominoes-node>
+        </div>
+        <div class='content'>
+          <h1>Final del campeonato mundial</h1>
+        </div>
+      </div>
+      <div id='rightbar' layout vertical>
+        <div class='content' id='chat' layout vertical>
+          <div flex id='messages'>
+            <div class='message' horizontal layout>
+              <a class='thumbnail' href='#'>
+                <img src='https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg'>
+              </a>
+              <div class='inline'>
+                <a class='author' href='#'>
+                  arkeros
+                </a>
+                hola
+              </div>
+            </div>
+            <div class='message' horizontal layout>
+              <a class='thumbnail' href='#'>
+                <img src='http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/1939840_520061504778249_1525149753_a.jpg'>
+              </a>
+              <div class='inline' flex>
+                <a class='author' href='#'>hopefulhazel</a>
+                eii
+              </div>
+            </div>
+            <div class='message' horizontal layout>
+              <a class='thumbnail' href='#'>
+                <img src='https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg'>
+              </a>
+              <div class='inline' flex>
+                <a class='author' href='#'>arkeros</a>
+                voy a ganar jeje
+              </div>
+            </div>
+          </div>
+          <paper-input id='input' label='Write a message...' maxRows='3' multiline></paper-input>
+        </div>
+        <div class='content' flex id='log'>
+          eventos del juego...
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>(function(scope) {
+  'use strict';
+  return scope.Polymer('dominobase-livegame', {
+    games: [],
+    fireLasers: function() {
+      return this.fire('seed-element-lasers-success', {
+        sound: 'Pew pew pew!'
+      });
+    }
+  });
+})(window);
+</script>
+</polymer-element>

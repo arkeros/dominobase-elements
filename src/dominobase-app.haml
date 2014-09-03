@@ -1,0 +1,70 @@
+%link(rel="import" href="../polymer/polymer.html")
+
+%link(href="../core-icons/social-icons.html" rel="import")
+%link(href="../core-icons/hardware-icons.html" rel="import")
+%link(href="../core-icons/av-icons.html" rel="import")
+%link(href="../core-icons/device-icons.html" rel="import")
+
+%link(rel="import" href="../core-scaffold/core-scaffold.html")
+%link(rel="import" href="../core-header-panel/core-header-panel.html")
+%link(rel="import" href="../core-toolbar/core-toolbar.html")
+%link(rel="import" href="../core-menu/core-menu.html")
+%link(rel="import" href="../core-menu/core-submenu.html")
+%link(rel="import" href="../core-item/core-item.html")
+
+%link(href="dominobase-pages-all.html" rel="import")
+
+%link(href="../paper-dialog/paper-dialog.html" rel="import")
+
+%polymer-element(name="dominobase-app" attributes="user" constructor="DominoesNode")
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="styles/dominobase-app.css")
+        / endsmoosh
+        %core-scaffold
+            %core-header-panel(mode="seamed" navigation=true flex=true)
+                %core-toolbar  DominoBase.dev
+                %core-menu(selected="2")
+                    %core-item(label="{{user}}")
+                    %core-item(label="Home" icon="home")
+                    %core-submenu(label="Games" icon="hardware:gamepad")
+                        %core-item(label="Waiting" icon="av:play-arrow")
+                        %core-item(label="Started" icon="hardware:tv")
+                        %core-item(label="Finished" icon="history")
+                    %core-submenu(label="Players" icon="social:person")
+                        %core-item(label="Friends" icon="av:play-arrow")
+                        %core-item(label="Online" icon="hardware:tv")
+                        %core-item(label="Ranking" icon="history")
+                    %footer
+                        %a(href="/about") About
+                        %a(href="#") Blog
+                        %a(href="/help") Help
+                        %a(href="#") Developers
+                        %br/
+                        %a(href="#") Contact
+                        %a(href="#") Privacy Policy
+                        %a(href="#") Terms
+
+            %core-toolbar(tool=true flex=true)
+                %div(flex=true) Games
+                %core-icon-button(icon="add" onclick="document.querySelector('paper-dialog#game-create').toggle()")
+                %core-icon-button(icon="search")      
+                
+            #main(layout=true vertical=true)
+                %dominobase-livegame
+                
+        %paper-dialog#game-create(heading="Create Game" transition="paper-dialog-transition-bottom")
+            %div(layout=true horizontal=true)
+                %span(self-center=true) Players
+                %paper-slider(min="2" max="4" value="2" flex=true editable=true)
+            %div(layout=true horizontal=true)
+                %span(self-center=true) Turn duration
+                %paper-slider(min="20" max="300" step="20" value="60" flex=true editable=true)
+            %paper-button(label="Cancel" dismissive=true)
+            %paper-button(label="Create" affirmative=true onclick="document.querySelector('#game-created').show()" autofocus=true)
+        
+        %paper-toast#game-created(role="alert" text="Connection timed out. Showing limited messages.")
+            %div(onclick="console.log('RETRY')" style="color: #eeff41") Retry
+    / smoosh
+    %script(src="scripts/dominobase-app.js")
+    / endsmoosh
