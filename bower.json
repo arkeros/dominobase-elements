@@ -1,13 +1,12 @@
 {
     "name": "dominobase-elements",
-    "private": true,
     "description": "Awesome stuff, the modular and interoperable way",
-    "keywords": [
-        "polymer",
-        "web-components"
-    ],
     "version": "0.0.0",
-    "main": "dominobase-app.html",
+    "main": [
+        "dominobase-app.html",
+        "dominobase-datasource.html"
+    ],
+    "license": "GPL-3.0+",
     "ignore": [
         "**/.*",
         "bower_components",
@@ -16,11 +15,24 @@
         "gulpfile.js",
         "package.json"
     ],
+    "keywords": [
+        "dominobase",
+        "dominoes",
+        "polymer",
+        "web-components"
+    ],
+    "authors": "Rafael Arquero Gimeno",
+    "homepage": "http://github.com/arkeros/dominobase-elements",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/arkeros/dominobase-elements.git"
+    },
+    
     "dependencies": {
-        "platform": "Polymer/platform#*",
         "polymer": "*",
-        "dominoes-node": "arkeros/dominoes-node#master",
         "core-elements": "Polymer/core-elements#*",
-        "paper-elements": "Polymer/paper-elements#*"
-    }
+        "paper-elements": "Polymer/paper-elements#*",
+        "dominoes-node": "arkeros/dominoes-node#master",
+    },
+    "private": true
 }

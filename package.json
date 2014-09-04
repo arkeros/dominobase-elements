@@ -1,9 +1,22 @@
 {
   "name": "dominobase-elements",
   "version": "0.0.0",
+  "description": "description",
+  "keywords": [
+    "dominobase",
+    "dominoes"
+  ],
+  "homepage": "http://github.com/arkeros/dominobase-elements",
+  "bugs": "http://github.com/arkeros/dominobase-elements/issues",
+  "license": "GPL-3.0+",
+  "author": "Rafael Arquero Gimeno",
   "repository": {
     "type": "git",
     "url": "https://github.com/arkeros/dominobase-elements.git"
+  },
+  "scripts": {
+    "pre-publish": "gulp && mkdir -p ../dominoes-node_dist && cp -r _dist/* ../dominoes-node_dist/",
+    "test": "gilipollas quien lo lea"
   },
   "dependencies": {},
   "devDependencies": {
@@ -46,8 +59,5 @@
     "node": ">=0.10.0",
     "npm": ">=1.3.8"
   },
-  "scripts": {
-    "pre-publish": "gulp && mkdir -p ../dominoes-node_dist && cp -r _dist/* ../dominoes-node_dist/",
-    "test": "gilipollas quien lo lea"
-  }
+  "private": true
 }
