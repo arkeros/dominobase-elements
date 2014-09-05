@@ -8,7 +8,7 @@
 
 #leftbar {
   margin-right: 10px; }
-  #leftbar .content {
+  #leftbar section {
     margin-top: 10px;
     margin-bottom: 0; }
 
@@ -25,7 +25,7 @@
     content: ""; }
 
 #chat {
-  height: 480px; }
+  height: 480px !important; }
   #chat .message {
     font-size: 14px;
     margin-bottom: 10px;
@@ -52,14 +52,14 @@ dominoes-node {
     <div horizontal layout>
       <div flex id='leftbar' layout vertical>
         <div class='aspect-ratio169'>
-          <dominoes-node board='{"tiles": [ [1, 6], [6, 6], [6, 0] ], "root": [6, 6]}'></dominoes-node>
+          <dominoes-node board='{"tiles": [ [1, 6], [6, 6], [6, 0] ], "root": [6, 6]}' hands='[ [ [0, 0], [1, 0] ], [ [2, 2], [5, 5] ] ]'></dominoes-node>
         </div>
-        <div class='content'>
+        <section>
           <h1>Final del campeonato mundial</h1>
-        </div>
+        </section>
       </div>
       <div id='rightbar' layout vertical>
-        <div class='content' id='chat' layout vertical>
+        <section id='chat' layout vertical>
           <div flex id='messages'>
             <div class='message' horizontal layout>
               <a class='thumbnail' href='#'>
@@ -92,10 +92,10 @@ dominoes-node {
             </div>
           </div>
           <paper-input id='input' label='Write a message...' maxRows='3' multiline></paper-input>
-        </div>
-        <div class='content' flex id='log'>
+        </section>
+        <section flex id='log'>
           eventos del juego...
-        </div>
+        </section>
       </div>
     </div>
   </template>
