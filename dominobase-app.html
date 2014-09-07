@@ -11,6 +11,8 @@
 <link href='../core-item/core-item.html' rel='import'>
 <link href='dominobase-pages-all.html' rel='import'>
 <link href='../paper-dialog/paper-dialog.html' rel='import'>
+<link href='../paper-slider/paper-slider.html' rel='import'>
+<link href='../paper-button/paper-button.html' rel='import'>
 <polymer-element attributes='user' constructor='DominoesNode' name='dominobase-app'>
   <template>
     <style>:host /deep/ a {
@@ -80,27 +82,27 @@ footer {
             <core-item icon='history' label='Ranking'></core-item>
           </core-submenu>
           <footer>
-            <a href='/about'>About</a>
-            <a href='#'>Blog</a>
-            <a href='/help'>Help</a>
-            <a href='#'>Developers</a>
+            <a href='./about'>About</a>
+            <a href='./blog'>Blog</a>
+            <a href='./help'>Help</a>
+            <a href='https://github.com/arkeros/dominobase'>Developers</a>
             <br>
-            <a href='#'>Contact</a>
-            <a href='#'>Privacy Policy</a>
-            <a href='#'>Terms</a>
+            <a href='./contact'>Contact</a>
+            <a href='./privacy'>Privacy Policy</a>
+            <a href='./terms'>Terms</a>
           </footer>
         </core-menu>
       </core-header-panel>
-      <core-toolbar flex tool>
-        <div flex>Games</div>
-        <core-icon-button icon='add' onclick="document.querySelector('paper-dialog#game-create').toggle()"></core-icon-button>
+      <div id='toolbar' tool>
+        Games
+        <core-icon-button icon='add' on-tap='{{toggleCreateGame}}'></core-icon-button>
         <core-icon-button icon='search'></core-icon-button>
-      </core-toolbar>
+      </div>
       <div id='main' layout vertical>
         <dominobase-livegame></dominobase-livegame>
       </div>
     </core-scaffold>
-    <paper-dialog heading='Create Game' id='game-create' transition='paper-dialog-transition-bottom'>
+    <paper-dialog heading='Create Game' id='game_create' transition='paper-dialog-transition-bottom'>
       <div horizontal layout>
         <span self-center>Players</span>
         <paper-slider editable flex max='4' min='2' value='2'></paper-slider>
@@ -120,10 +122,8 @@ footer {
   'use strict';
   return scope.Polymer('dominobase-app', {
     user: 'Anonymous',
-    fireLasers: function() {
-      return this.fire('seed-element-lasers-success', {
-        sound: 'Pew pew pew!'
-      });
+    toggleCreateGame: function(event, detail, sender) {
+      return this.$.game_create.toggle();
     }
   });
 })(window);

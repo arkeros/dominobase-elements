@@ -4,6 +4,5 @@ do (scope = window) ->
     ,
         user: 'Anonymous'
 
-        fireLasers: ->
-            @fire 'seed-element-lasers-success', 
-                sound: 'Pew pew pew!'
+        toggleCreateGame: (event, detail, sender) ->
+            @$.game_create.toggle()

@@ -27,12 +27,12 @@
         "type": "git",
         "url": "git://github.com/arkeros/dominobase-elements.git"
     },
-    
+
     "dependencies": {
         "polymer": "*",
         "core-elements": "Polymer/core-elements#*",
         "paper-elements": "Polymer/paper-elements#*",
-        "dominoes-node": "arkeros/dominoes-node#master",
+        "dominoes-node": "arkeros/dominoes-node#master"
     },
     "private": true
 }
