@@ -18,7 +18,9 @@
 %link(href="../paper-slider/paper-slider.html" rel="import")
 %link(href="../paper-button/paper-button.html" rel="import")
 
-%polymer-element(name="dominobase-app" attributes="user" constructor="DominoesNode")
+%link(href="../google-signin/google-signin.html" rel="import")
+
+%polymer-element(name="dominobase-app" attributes="user" constructor="DominoesNode" on-google-signin-success="{{SignInGoogle}}")
     %template
         / smoosh
         %link(rel="stylesheet" href="styles/dominobase-app.css")
@@ -27,7 +29,7 @@
             %core-header-panel(mode="seamed" navigation=true flex=true)
                 %core-toolbar  DominoBase.dev
                 %core-menu(selected="2")
-                    %core-item(label="{{user}}")
+                    %google-signin(clientId="103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com" scopes="profile email https://www.googleapis.com/auth/googletalk")
                     %core-item(label="Home" icon="home")
                     %core-submenu(label="Games" icon="hardware:gamepad")
                         %core-item(label="Waiting" icon="av:play-arrow")

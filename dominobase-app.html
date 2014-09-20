@@ -13,7 +13,8 @@
 <link href='../paper-dialog/paper-dialog.html' rel='import'>
 <link href='../paper-slider/paper-slider.html' rel='import'>
 <link href='../paper-button/paper-button.html' rel='import'>
-<polymer-element attributes='user' constructor='DominoesNode' name='dominobase-app'>
+<link href='../google-signin/google-signin.html' rel='import'>
+<polymer-element attributes='user' constructor='DominoesNode' name='dominobase-app' on-google-signin-success='{{SignInGoogle}}'>
   <template>
     <style>:host /deep/ a {
   text-decoration: none;
@@ -22,7 +23,7 @@
     text-decoration: underline; }
 
 #main {
-  margin: 10px 10%;
+  margin: 10px;
   color: #333; }
 
 :host /deep/ #main section {
@@ -69,7 +70,7 @@ footer {
       <core-header-panel flex mode='seamed' navigation>
         <core-toolbar>DominoBase.dev</core-toolbar>
         <core-menu selected='2'>
-          <core-item label='{{user}}'></core-item>
+          <google-signin clientId='103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com' scopes='profile email https://www.googleapis.com/auth/googletalk'></google-signin>
           <core-item icon='home' label='Home'></core-item>
           <core-submenu icon='hardware:gamepad' label='Games'>
             <core-item icon='av:play-arrow' label='Waiting'></core-item>
@@ -121,9 +122,13 @@ footer {
   <script>(function(scope) {
   'use strict';
   return scope.Polymer('dominobase-app', {
-    user: 'Anonymous',
     toggleCreateGame: function(event, detail, sender) {
       return this.$.game_create.toggle();
+    },
+    SignInGoogle: function(event, detail, sender) {
+      scope.console.log(event);
+      scope.console.log(detail);
+      return scope.console.log(sender);
     }
   });
 })(window);
