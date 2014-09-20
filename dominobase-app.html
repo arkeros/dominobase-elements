@@ -126,9 +126,18 @@ footer {
       return this.$.game_create.toggle();
     },
     SignInGoogle: function(event, detail, sender) {
+      var gapi;
+      gapi = detail.gapi;
       scope.console.log(event);
       scope.console.log(detail);
-      return scope.console.log(sender);
+      scope.console.log(sender);
+      return gapi.client.load('plus', 'v1', function() {
+        return gapi.client.plus.people.get({
+          userId: 'me'
+        }).execute(function(resp) {
+          return scope.console.log(resp);
+        });
+      });
     }
   });
 })(window);
