@@ -1,0 +1,30 @@
+<link href='../layouts/base-layout.html' rel='import'>
+<link href='../../paper-input/paper-input.html' rel='import'>
+<link href='../../paper-button/paper-button.html' rel='import'>
+<polymer-element name='about-page' noscript>
+  <template>
+    <style>.cover {
+  height: 300px;
+  background-color: #111;
+  background-image: url("../images/about.jpg");
+  background-size: cover;
+  background-position: 50%; }
+</style>
+    <base-layout>
+      <div id='toolbar' tool>
+        About DominoBase
+      </div>
+      <div header id='header'>
+        <div class='cover'></div>
+      </div>
+      <section layout vertical>
+        <h2>GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over six million people use GitHub to build amazing things together.</h2>
+        <paper-input floatingLabel label='Name' required value='Rafael Arquero Gimeno'></paper-input>
+        <paper-input floatingLabel label='Email' required value='rafa.arquero@gmail.com'></paper-input>
+        <paper-input floatingLabel label='Subject'></paper-input>
+        <paper-input floatingLabel label='Body' maxRows='5' multiline required></paper-input>
+        <paper-button label='Send request' raisedButton></paper-button>
+      </section>
+    </base-layout>
+  </template>
+</polymer-element>

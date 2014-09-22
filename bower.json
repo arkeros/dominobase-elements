@@ -32,8 +32,13 @@
         "polymer": "*",
         "core-elements": "Polymer/core-elements#*",
         "paper-elements": "Polymer/paper-elements#*",
+
         "dominoes-node": "arkeros/dominoes-node#master",
+
+        "app-router": "*",
+        "pushstate-anchor": "*",
         "google-signin": "*",
+        "strophe": "*",
         "emoji-icons": "arkeros/emoji-icons#*"
     },
     "private": true

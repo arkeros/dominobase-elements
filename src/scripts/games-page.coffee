@@ -1,9 +1,9 @@
 do (scope = window) ->
     'use strict'
-    scope.Polymer 'dominobase-livegame'
+    scope.Polymer 'games-page'
     ,
         games: []
 
         fireLasers: ->
-            @fire 'seed-element-lasers-success', 
+            @fire 'seed-element-lasers-success',
                 sound: 'Pew pew pew!'

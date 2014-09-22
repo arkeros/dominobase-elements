@@ -1,0 +1,26 @@
+%link(href="../layouts/base-layout.html" rel="import")
+
+%link(href="../../paper-input/paper-input.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%polymer-element(name="about-page" noscript=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/about-page.css")
+        / endsmoosh
+        %base-layout
+            #toolbar(tool=true)
+                About DominoBase
+
+            #header(header=true)
+                .cover
+
+            %section(vertical=true layout=true)
+                %h2 GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over six million people use GitHub to build amazing things together.
+
+                %paper-input(label="Name" value="Rafael Arquero Gimeno" floatingLabel=true required=true)
+                %paper-input(label="Email" value="rafa.arquero@gmail.com" floatingLabel=true required=true)
+                %paper-input(label="Subject" floatingLabel=true)
+                %paper-input(label="Body" required=true floatingLabel=true multiline=true maxRows="5")
+                %paper-button(label="Send request" raisedButton=true)
+

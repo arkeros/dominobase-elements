@@ -1,0 +1,23 @@
+%link(href="../layouts/base-layout.html" rel="import")
+
+%link(href="../../paper-input/paper-input.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%polymer-element(name="contact-page" noscript=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/contact-page.css")
+        / endsmoosh
+        %base-layout
+            #toolbar(tool=true)
+                Contact DominoBase
+
+            %section(vertical=true layout=true)
+                %h2 We’re here to help with any questions or comments. If you just want to say hi, that's cool too.
+
+                %paper-input(label="Name" value="Rafael Arquero Gimeno" floatingLabel=true required=true)
+                %paper-input(label="Email" type="email" value="rafa.arquero@gmail.com" floatingLabel=true required=true)
+                %paper-input(label="Subject" floatingLabel=true)
+                %paper-input(label="Body" required=true floatingLabel=true multiline=true maxRows="5")
+                %paper-button(label="Send request" raisedButton=true)
+

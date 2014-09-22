@@ -1,0 +1,23 @@
+<link href='../layouts/base-layout.html' rel='import'>
+<link href='../../paper-input/paper-input.html' rel='import'>
+<link href='../../paper-button/paper-button.html' rel='import'>
+<polymer-element name='contact-page' noscript>
+  <template>
+    <style>paper-button {
+  width: 10em; }
+</style>
+    <base-layout>
+      <div id='toolbar' tool>
+        Contact DominoBase
+      </div>
+      <section layout vertical>
+        <h2>We’re here to help with any questions or comments. If you just want to say hi, that's cool too.</h2>
+        <paper-input floatingLabel label='Name' required value='Rafael Arquero Gimeno'></paper-input>
+        <paper-input floatingLabel label='Email' required type='email' value='rafa.arquero@gmail.com'></paper-input>
+        <paper-input floatingLabel label='Subject'></paper-input>
+        <paper-input floatingLabel label='Body' maxRows='5' multiline required></paper-input>
+        <paper-button label='Send request' raisedButton></paper-button>
+      </section>
+    </base-layout>
+  </template>
+</polymer-element>

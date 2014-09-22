@@ -58,11 +58,25 @@ gulp.task('clean', ['clean:tmp', 'clean:build']);
 // default
 gulp.task('precompile', ['haml', 'sass', 'coffee']);
 
-gulp.task('build', function () {
+gulp.task('build:root', function () {
     return gulp.src(config.tmpDir + '/*.html')
         .pipe($.smoosher())
         .pipe(gulp.dest(config.buildDir + '/'));
 });
+
+gulp.task('build:pages', function () {
+    return gulp.src(config.tmpDir + '/pages/*.html')
+        .pipe($.smoosher())
+        .pipe(gulp.dest(config.buildDir + '/pages/'));
+});
+
+gulp.task('build:layouts', function () {
+    return gulp.src(config.tmpDir + '/layouts/*.html')
+        .pipe($.smoosher())
+        .pipe(gulp.dest(config.buildDir + '/layouts/'));
+});
+
+gulp.task('build', ['build:root', 'build:pages', 'build:layouts']);
 
 
 gulp.task('default', ['clean'], function (cb) {
@@ -75,7 +89,7 @@ gulp.task('default', ['clean'], function (cb) {
 });
 
 gulp.task('dist', function () {
-    return gulp.src(config.buildDir + '/*')
+    return gulp.src(config.buildDir + '/**/*.html')
         .pipe($.size({
             showFiles: true
         }))

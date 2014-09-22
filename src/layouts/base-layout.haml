@@ -1,0 +1,80 @@
+%link(rel="import" href="../../polymer/polymer.html")
+
+%link(href="../../core-icons/social-icons.html" rel="import")
+%link(href="../../core-icons/hardware-icons.html" rel="import")
+%link(href="../../core-icons/av-icons.html" rel="import")
+%link(href="../../core-icons/device-icons.html" rel="import")
+
+%link(rel="import" href="../../core-scaffold/core-scaffold.html")
+%link(rel="import" href="../../core-header-panel/core-header-panel.html")
+%link(rel="import" href="../../core-toolbar/core-toolbar.html")
+%link(rel="import" href="../../core-menu/core-menu.html")
+%link(rel="import" href="../../core-menu/core-submenu.html")
+%link(rel="import" href="../../core-item/core-item.html")
+
+%link(href="../../paper-dialog/paper-dialog.html" rel="import")
+%link(href="../../paper-slider/paper-slider.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%link(href="../../google-signin/google-signin.html" rel="import")
+
+%polymer-element(name="base-layout" attributes="user" noscript=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/base-layout.css")
+        / endsmoosh
+        %core-scaffold
+            %core-header-panel(mode="seamed" navigation=true flex=true)
+                %core-toolbar  DominoBase.dev
+                %core-menu(selected="2")
+                    %core-item(label="Home" icon="home")
+                    %core-submenu(label="Games" icon="av:games")
+                        %a(href="/games" is="pushstate-anchor")
+                            %core-item(label="Waiting" icon="av:play-arrow")
+                        %a(href="/games/1234" is="pushstate-anchor")
+                            %core-item(label="Started" icon="hardware:tv")
+                        %core-item(label="Finished" icon="history")
+                    %core-submenu(label="Players" icon="social:person")
+                        %core-item(label="Online" icon="av:play-arrow")
+                        %core-item(label="Latest Players" icon="hardware:tv")
+                        %core-item(label="Ranking" icon="history")
+                    %footer
+                        %a(href="/about" is="pushstate-anchor") About
+                        %a(href="/blog" is="pushstate-anchor") Blog
+                        %a(href="/help" is="pushstate-anchor") Help
+                        %a(href="https://github.com/arkeros/dominobase") Developers
+                        %br/
+                        %a(href="/contact" is="pushstate-anchor") Contact
+                        %a(href="/privacy" is="pushstate-anchor") Privacy Policy
+                        %a(href="/terms" is="pushstate-anchor") Terms
+
+            .todo(tool=true)
+                %content(select="[tool]")
+                / %template(if="{{user.logged}}")
+                /     .userinfo
+                /         %img(src="{{user.image}}")
+                /         %span
+                /             {{user.name}}
+                / %template(if="{{!user.logged}}")
+                %google-signin(clientId="103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com" scopes="profile email https://www.googleapis.com/auth/googletalk")
+
+            %content(select="[header]")
+
+            #content(layout=true vertical=true)
+                %content(select="*")
+
+        %paper-dialog#game_create(heading="Create Game" transition="paper-dialog-transition-bottom")
+            %div(layout=true horizontal=true)
+                %span(self-center=true) Players
+                %paper-slider(min="2" max="4" value="2" flex=true editable=true)
+            %div(layout=true horizontal=true)
+                %span(self-center=true) Turn duration
+                %paper-slider(min="20" max="300" step="20" value="60" flex=true editable=true)
+            %paper-button(label="Cancel" dismissive=true)
+            %paper-button(label="Create" affirmative=true onclick="document.querySelector('#game-created').show()" autofocus=true)
+
+        %paper-toast#game-created(role="alert" text="Connection timed out. Showing limited messages.")
+            %div(onclick="console.log('RETRY')" style="color: #eeff41") Retry
+    / smoosh
+    %script(src="../scripts/base-layout.js")
+    / endsmoosh
