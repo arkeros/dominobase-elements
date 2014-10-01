@@ -12,6 +12,7 @@
 <link href='../../paper-dialog/paper-dialog.html' rel='import'>
 <link href='../../paper-slider/paper-slider.html' rel='import'>
 <link href='../../paper-button/paper-button.html' rel='import'>
+<link href='../../paper-menu-button/paper-menu-button.html' rel='import'>
 <link href='../../google-signin/google-signin.html' rel='import'>
 <polymer-element attributes='user' name='base-layout' noscript>
   <template>
@@ -24,6 +25,35 @@
 #content {
   margin: 10px;
   color: #333; }
+
+.accent {
+  color: white;
+  background: #cf3f2e; }
+
+.userinfo {
+  position: relative;
+  height: 144px;
+  background-color: #111;
+  background-size: cover;
+  background-position: 50%; }
+  .userinfo .avatar {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px; }
+  .userinfo .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1em;
+    text-align: left;
+    padding: 0 1em;
+    font-weight: 400;
+    margin: 0 auto;
+    line-height: 1.3em;
+    color: white; }
 
 :host /deep/ #content /deep/ section {
   margin-bottom: 10px;
@@ -67,9 +97,27 @@ footer {
 </style>
     <core-scaffold>
       <core-header-panel flex mode='seamed' navigation>
-        <core-toolbar>DominoBase.dev</core-toolbar>
+        <div class='userinfo' style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')">
+          <div class='avatar' style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')"></div>
+          <div class='title'>
+            Rafael Arquero Gimeno
+            <paper-menu-button halign='right' icon='arrow-drop-down' noTransition>
+              <div>Menu Item 1</div>
+              <div>Menu Item 2</div>
+              <div>Menu Item 3</div>
+            </paper-menu-button>
+          </div>
+        </div>
         <core-menu selected='2'>
-          <core-item icon='home' label='Home'></core-item>
+          <div center-justified class='clip' horizontal layout>
+            <paper-button class='accent' label='Nueva partida' raisedButton>
+              <papper-ripple></papper-ripple>
+            </paper-button>
+          </div>
+          <google-signin clientId='103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com' scopes='profile email https://www.googleapis.com/auth/googletalk'></google-signin>
+          <a href='/' is='pushstate-anchor'>
+            <core-item icon='home' label='Home'></core-item>
+          </a>
           <core-submenu icon='av:games' label='Games'>
             <a href='/games' is='pushstate-anchor'>
               <core-item icon='av:play-arrow' label='Waiting'></core-item>
@@ -104,7 +152,11 @@ footer {
         <!-- %span -->
         <!-- {{user.name}} -->
         <!-- %template(if="{{!user.logged}}") -->
-        <google-signin clientId='103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com' scopes='profile email https://www.googleapis.com/auth/googletalk'></google-signin>
+        <paper-menu-button halign='right' icon='more-vert'>
+          <div>Menu Item 1</div>
+          <div>Menu Item 2</div>
+          <div>Menu Item 3</div>
+        </paper-menu-button>
       </div>
       <content select='[header]'></content>
       <div id='content' layout vertical>

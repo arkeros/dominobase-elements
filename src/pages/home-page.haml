@@ -1,0 +1,51 @@
+%link(href="../layouts/base-layout.html" rel="import")
+
+%link(href="../../paper-input/paper-input.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%polymer-element(name="home-page" noscript=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/home-page.css")
+        / endsmoosh
+        %base-layout
+            #toolbar(tool=true)
+                Contact DominoBase
+
+            .tiles(fit=true)
+                .tile.double
+                    %paper-ripple(fit=true)
+                    .title
+                        Juega
+                .tile(background-color="green")
+                    %paper-ripple(fit=true)
+                    .title
+                        Aprende
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Contra el PC
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Torneos
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Videos
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Mobile
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Aperturas
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Entrenador Táctico
+                .tile
+                    %paper-ripple(fit=true)
+                    .title
+                        Mentor de Ajedrez

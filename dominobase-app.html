@@ -1,15 +1,20 @@
 <link href='../polymer/polymer.html' rel='import'>
+<link href='pages.html' rel='import'>
 <link href='../app-router/app-router.html' rel='import'>
 <link href='../pushstate-anchor/pushstate-anchor.html' rel='import'>
 <link href='strophe.html' rel='import'>
 <polymer-element attributes='user' constructor='DominobaseApp' name='dominobase-app' on-google-signin-success='{{SignInGoogle}}'>
   <template>
     <app-router>
-      <app-route import='/bower_components/dominobase-elements/pages/about-page.html' path='/about'></app-route>
-      <app-route import='/bower_components/dominobase-elements/pages/contact-page.html' path='/contact'></app-route>
-      <app-route import='/bower_components/dominobase-elements/pages/games-page.html' path='/games'></app-route>
-      <app-route import='/bower_components/dominobase-elements/pages/livegame-page.html' path='/games/:id'></app-route>
-      <app-route import='/bower_components/dominobase-elements/pages/not-found-page.html' path='*'></app-route>
+      <app-route element='home-page' path='/'></app-route>
+      <app-route element='about-page' path='/about'></app-route>
+      <app-route element='team-page' path='/team'></app-route>
+      <app-route element='press-page' path='/press'></app-route>
+      <app-route element='jobs-page' path='/jobs'></app-route>
+      <app-route element='contact-page' path='/contact'></app-route>
+      <app-route element='games-page' path='/games'></app-route>
+      <app-route element='livegame-page' path='/games/:id'></app-route>
+      <app-route element='not-found-page' path='*'></app-route>
     </app-router>
   </template>
   <script>(function(scope) {

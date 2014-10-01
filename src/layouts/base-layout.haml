@@ -15,6 +15,7 @@
 %link(href="../../paper-dialog/paper-dialog.html" rel="import")
 %link(href="../../paper-slider/paper-slider.html" rel="import")
 %link(href="../../paper-button/paper-button.html" rel="import")
+%link(href="../../paper-menu-button/paper-menu-button.html" rel="import")
 
 %link(href="../../google-signin/google-signin.html" rel="import")
 
@@ -25,9 +26,22 @@
         / endsmoosh
         %core-scaffold
             %core-header-panel(mode="seamed" navigation=true flex=true)
-                %core-toolbar  DominoBase.dev
+                .userinfo(style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')")
+                    .avatar(style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')")
+                    .title
+                        Rafael Arquero Gimeno
+                        %paper-menu-button(icon="arrow-drop-down" halign="right" noTransition=true)
+                            %div Menu Item 1
+                            %div Menu Item 2
+                            %div Menu Item 3
+
                 %core-menu(selected="2")
-                    %core-item(label="Home" icon="home")
+                    .clip(horizontal=true layout=true center-justified=true)
+                        %paper-button.accent(label="Nueva partida" raisedButton=true)
+                            %papper-ripple
+                    %google-signin(clientId="103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com" scopes="profile email https://www.googleapis.com/auth/googletalk")
+                    %a(href="/" is="pushstate-anchor")
+                        %core-item(label="Home" icon="home")
                     %core-submenu(label="Games" icon="av:games")
                         %a(href="/games" is="pushstate-anchor")
                             %core-item(label="Waiting" icon="av:play-arrow")
@@ -56,7 +70,11 @@
                 /         %span
                 /             {{user.name}}
                 / %template(if="{{!user.logged}}")
-                %google-signin(clientId="103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com" scopes="profile email https://www.googleapis.com/auth/googletalk")
+
+                %paper-menu-button(icon="more-vert" halign="right")
+                    %div Menu Item 1
+                    %div Menu Item 2
+                    %div Menu Item 3
 
             %content(select="[header]")
 

@@ -2,7 +2,7 @@
 <link href='../../paper-tabs/paper-tabs.html' rel='import'>
 <link href='../../paper-input/paper-input.html' rel='import'>
 <link href='../../paper-button/paper-button.html' rel='import'>
-<polymer-element name='about-page' noscript>
+<polymer-element name='press-page' noscript>
   <template>
     <style>.cover {
   height: 300px;
@@ -23,22 +23,28 @@
       </div>
       <div header id='header'>
         <div class='cover'></div>
-        <paper-tabs selected='0'>
+        <paper-tabs selected='3'>
           <paper-tab>
             <a href='/about' is='pushstate-anchor'>About DominoBase</a>
           </paper-tab>
           <paper-tab>
-            <a href='/team' is='pushstate-anchor'>Our Team</a>
+            <a href='/about/team' is='pushstate-anchor'>Our Team</a>
           </paper-tab>
           <paper-tab>
-            <a href='/press' is='pushstate-anchor'>Press</a>
+            <a href='/about/press' is='pushstate-anchor'>Press</a>
           </paper-tab>
           <paper-tab>
-            <a href='/jobs' is='pushstate-anchor'>Jobs</a>
+            <a href='/about/jobs' is='pushstate-anchor'>Jobs</a>
           </paper-tab>
         </paper-tabs>
       </div>
-      <p class='lead'>DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.</p>
+      <p class='lead'>
+        There are
+        <strong>7M people</strong>
+        playing right now across
+        <strong>15.8M games</strong>
+        on DominoBase. Players from all around the world are building amazing things together. Their story is our story.
+      </p>
     </base-layout>
   </template>
 </polymer-element>

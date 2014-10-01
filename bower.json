@@ -4,7 +4,11 @@
     "version": "0.0.0",
     "main": [
         "dominobase-app.html",
-        "dominobase-datasource.html"
+        "dominobase-datasource.html",
+        "pages.html",
+        "strophe.html",
+        "pages/*.html",
+        "layouts/*.html"
     ],
     "license": "GPL-3.0+",
     "ignore": [

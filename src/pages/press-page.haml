@@ -1,0 +1,33 @@
+%link(href="../layouts/base-layout.html" rel="import")
+
+%link(href="../../paper-tabs/paper-tabs.html" rel="import")
+%link(href="../../paper-input/paper-input.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%polymer-element(name="press-page" noscript=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/press-page.css")
+        / endsmoosh
+        %base-layout
+            #toolbar(tool=true)
+                About DominoBase
+
+            #header(header=true)
+                .cover
+                %paper-tabs(selected="3")
+                    %paper-tab
+                        %a(href="/about" is="pushstate-anchor") About DominoBase
+                    %paper-tab
+                        %a(href="/about/team" is="pushstate-anchor") Our Team
+                    %paper-tab
+                        %a(href="/about/press" is="pushstate-anchor") Press
+                    %paper-tab
+                        %a(href="/about/jobs" is="pushstate-anchor") Jobs
+
+            %p.lead
+                There are
+                %strong 7M people
+                playing right now across
+                %strong 15.8M games
+                on DominoBase. Players from all around the world are building amazing things together. Their story is our story.

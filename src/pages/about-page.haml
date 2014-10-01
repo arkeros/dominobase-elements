@@ -1,5 +1,6 @@
 %link(href="../layouts/base-layout.html" rel="import")
 
+%link(href="../../paper-tabs/paper-tabs.html" rel="import")
 %link(href="../../paper-input/paper-input.html" rel="import")
 %link(href="../../paper-button/paper-button.html" rel="import")
 
@@ -14,13 +15,14 @@
 
             #header(header=true)
                 .cover
+                %paper-tabs(selected="0")
+                    %paper-tab
+                        %a(href="/about" is="pushstate-anchor") About DominoBase
+                    %paper-tab
+                        %a(href="/team" is="pushstate-anchor") Our Team
+                    %paper-tab
+                        %a(href="/press" is="pushstate-anchor") Press
+                    %paper-tab
+                        %a(href="/jobs" is="pushstate-anchor") Jobs
 
-            %section(vertical=true layout=true)
-                %h2 GitHub is the best place to share code with friends, co-workers, classmates, and complete strangers. Over six million people use GitHub to build amazing things together.
-
-                %paper-input(label="Name" value="Rafael Arquero Gimeno" floatingLabel=true required=true)
-                %paper-input(label="Email" value="rafa.arquero@gmail.com" floatingLabel=true required=true)
-                %paper-input(label="Subject" floatingLabel=true)
-                %paper-input(label="Body" required=true floatingLabel=true multiline=true maxRows="5")
-                %paper-button(label="Send request" raisedButton=true)
-
+            %p.lead DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.
