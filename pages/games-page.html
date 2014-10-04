@@ -1,11 +1,12 @@
 <link href='../layouts/base-layout.html' rel='import'>
+<link href='../../paper-fab/paper-fab.html' rel='import'>
 <polymer-element attributes='games' constructor='DominobaseGames' name='games-page'>
   <template>
     <style>
 </style>
     <base-layout>
+      <span title='true'>Games</span>
       <section layout vertical>
-        <h2>Top started games</h2>
         <div around-justified horizontal layout wrap>
           <template repeat='{{game in games}}'>
             <div class='card'>
@@ -44,6 +45,7 @@
           </template>
         </div>
       </section>
+      <paper-fab icon='add'></paper-fab>
     </base-layout>
   </template>
   <script>(function(scope) {

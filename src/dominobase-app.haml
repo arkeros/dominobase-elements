@@ -3,11 +3,14 @@
 %link(href="pages.html" rel="import")
 %link(href="../app-router/app-router.html" rel="import")
 %link(href="../pushstate-anchor/pushstate-anchor.html" rel="import")
-%link(href="strophe.html" rel="import")
+/ %link(href="strophe.html" rel="import")
 
 %polymer-element(name="dominobase-app" attributes="user" constructor="DominobaseApp" on-google-signin-success="{{SignInGoogle}}")
     %template
         %app-router
+            %app-route(path="/build/" element="home-page")
+            %app-route(path="/dominobase/" element="home-page")
+
             %app-route(path="/" element="home-page")
             %app-route(path="/about" element="about-page")
             %app-route(path="/team" element="team-page")
@@ -17,6 +20,9 @@
 
             %app-route(path="/games" element="games-page")
             %app-route(path="/games/:id" element="livegame-page")
+
+            / %app-route(path="/players" element="players-page")
+            %app-route(path="/players/:slug" element="player-page")
 
             %app-route(path="*" element="not-found-page")
     / smoosh

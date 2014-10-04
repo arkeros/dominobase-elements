@@ -3,89 +3,100 @@
 <link href='../../paper-button/paper-button.html' rel='import'>
 <polymer-element name='home-page' noscript>
   <template>
-    <style>.tiles .tile {
-  position: relative;
-  background-color: #ff5252;
-  width: calc(100% / 6);
-  height: calc(100% / 3);
-  box-sizing: border-box;
-  border: 2px solid white; }
-  .tiles .tile.double {
-    width: calc(100% / 3);
-    height: calc(100% / 1.5); }
-  .tiles .tile papper-ripple {
-    color: white; }
-  .tiles .tile .title {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 1em;
-    text-align: left;
-    padding: 0 1.5em;
-    font-weight: 400;
-    margin: 0 auto;
-    line-height: 1.3em;
-    color: white;
-    font-size: 19px; }
+    <style>.tiles {
+  margin: 2px;
+  color: white; }
+  .tiles .tile {
+    position: relative;
+    background-color: #40c4ff;
+    width: calc(100% / 6);
+    height: calc(100% / 3);
+    box-sizing: border-box;
+    border: 2px solid white;
+    float: left;
+    vertical-align: top;
+    will-change: transform; }
+    .tiles .tile papper-ripple {
+      color: white; }
+    .tiles .tile .title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1em;
+      text-align: left;
+      padding: 0 1.5em;
+      font-weight: 400;
+      margin: 0 auto;
+      line-height: 1.3em;
+      font-size: 19px; }
+    .tiles .tile .icon {
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width: 50%;
+      height: 50%; }
+    .tiles .tile:nth-of-type(1), .tiles .tile:nth-of-type(5) {
+      width: calc(100% / 3);
+      height: calc(100% / 1.5); }
+    .tiles .tile:nth-of-type(2) {
+      height: calc(100% / 1.5); }
+    .tiles .tile:nth-of-type(3), .tiles .tile:nth-of-type(8) {
+      width: calc(100% / 3); }
+    .tiles .tile:nth-of-type(8) {
+      position: absolute;
+      top: calc(100% / 1.5);
+      left: 0; }
+    .tiles .tile:nth-of-type(9) {
+      position: absolute;
+      top: calc(100% / 1.5);
+      left: calc(100% / 3); }
 </style>
-    <base-layout>
-      <div id='toolbar' tool>
-        Contact DominoBase
-      </div>
+    <base-layout mode='seamed'>
+      <span title>DominoBase</span>
       <div class='tiles' fit>
-        <div class='tile double'>
+        <div class='tile' style='background-color:#FF5252'>
+          <div class='title'>Play</div>
+          <core-icon class='icon' icon='av:play-arrow'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Juega
-          </div>
         </div>
-        <div background-color='green' class='tile'>
+        <div class='tile' style='background-color:#1de9b6'>
+          <div class='title'>Against Computer</div>
+          <core-icon class='icon' icon='hardware:laptop'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Aprende
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#6889ff'>
+          <div class='title'>Videos</div>
+          <core-icon class='icon' icon='av:videocam'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Contra el PC
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#40c4ff'>
+          <div class='title'>Openings</div>
+          <core-icon class='icon' icon='search'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Torneos
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#ff6e40'>
+          <div class='title'>Learn</div>
+          <core-icon class='icon' icon='book'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Videos
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#ffff00'>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Mobile
-          </div>
+          <div class='title'>Tactics Trainer</div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#5af158'>
+          <div class='title'>Mobile</div>
+          <core-icon class='icon' icon='android'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Aperturas
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#ffd740;color:#616161'>
+          <div class='title'>Tournaments</div>
+          <core-icon class='icon' icon='social:people'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Entrenador Táctico
-          </div>
         </div>
-        <div class='tile'>
+        <div class='tile' style='background-color:#e040fb'>
+          <div class='title'>Chess Mentor</div>
+          <core-icon class='icon' icon='social:school'></core-icon>
           <paper-ripple fit></paper-ripple>
-          <div class='title'>
-            Mentor de Ajedrez
-          </div>
         </div>
       </div>
     </base-layout>

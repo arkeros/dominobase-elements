@@ -11,10 +11,13 @@
         %link(rel="stylesheet" href="../styles/livegame-page.css")
         / endsmoosh
         %base-layout
-            #toolbar(tool=true)
+            %span(title=true)
                 Games
-                %core-icon-button(icon="add" on-tap="{{toggleCreateGame}}" halign="right")
-                %core-icon-button(icon="search" halign="right")
+                %core-icon(icon="chevron-right")
+                arkeros vs hopefulhazel
+            .actions(actions=true)
+                %paper-icon-button(icon="add" on-tap="{{toggleCreateGame}}" halign="right")
+                %paper-icon-button(icon="search" halign="right")
 
             %div(layout=true horizontal=true)
                 #leftbar(layout=true vertical=true flex=true)
@@ -23,7 +26,7 @@
                     %section
                         %h1 Final del campeonato mundial
                 #rightbar(layout=true vertical=true)
-                    %section#chat(layout=true vertical=true flex=true)
+                    #chat.card(layout=true vertical=true flex=true)
                         #messages(flex=true)
                             .message(layout=true horizontal=true)
                                 %a.thumbnail(href="#")
@@ -44,8 +47,12 @@
                                 .inline(flex=true)
                                     %a.author(href="#")='arkeros'
                                     voy a ganar jeje
-                        %paper-input#input(multiline=true maxRows="3" label="Write a message...")
-                    %section#log(flex=true)
+                        %core-toolbar.actions
+                            %paper-input(label="Write a message..." flex=true)
+                            %paper-menu-button(icon="hardware:keyboard-alt")
+                            %paper-icon-button(icon="send")
+
+                    #log.card(flex=true)
                         eventos del juego...
                         %core-icon(icon='emoji:😄')
                         %core-icon(icon='emoji:😃')

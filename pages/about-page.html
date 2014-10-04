@@ -4,41 +4,37 @@
 <link href='../../paper-button/paper-button.html' rel='import'>
 <polymer-element name='about-page' noscript>
   <template>
-    <style>.cover {
-  height: 300px;
-  background-color: #111;
-  background-image: url("../images/about.jpg");
-  background-size: cover;
-  background-position: 50%; }
-
-.lead {
-  text-align: center;
-  padding: 0 10%;
-  margin: 2em 0;
-  font-size: 24px; }
+    <style>.hero {
+  background-image: url("../images/about.jpg"); }
 </style>
     <base-layout>
-      <div id='toolbar' tool>
-        About DominoBase
+      <span title>
+        DominoBase
+        <core-icon icon='chevron-right'></core-icon>
+        About
+      </span>
+      <paper-tabs selected='0'>
+        <paper-tab>
+          About DominoBase
+          <a href='/about' is='pushstate-anchor'></a>
+        </paper-tab>
+        <paper-tab>
+          Our Team
+          <a href='/team' is='pushstate-anchor'></a>
+        </paper-tab>
+        <paper-tab>
+          Press
+          <a href='/press' is='pushstate-anchor'></a>
+        </paper-tab>
+        <paper-tab>
+          Jobs
+          <a href='/jobs' is='pushstate-anchor'></a>
+        </paper-tab>
+      </paper-tabs>
+      <div class='hero'>
+        <h1 class='title'>About DominoBase</h1>
+        <p class='text'>DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.</p>
       </div>
-      <div header id='header'>
-        <div class='cover'></div>
-        <paper-tabs selected='0'>
-          <paper-tab>
-            <a href='/about' is='pushstate-anchor'>About DominoBase</a>
-          </paper-tab>
-          <paper-tab>
-            <a href='/team' is='pushstate-anchor'>Our Team</a>
-          </paper-tab>
-          <paper-tab>
-            <a href='/press' is='pushstate-anchor'>Press</a>
-          </paper-tab>
-          <paper-tab>
-            <a href='/jobs' is='pushstate-anchor'>Jobs</a>
-          </paper-tab>
-        </paper-tabs>
-      </div>
-      <p class='lead'>DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.</p>
     </base-layout>
   </template>
 </polymer-element>

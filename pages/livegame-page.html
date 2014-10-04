@@ -49,10 +49,14 @@ dominoes-node {
   background-color: #071; }
 </style>
     <base-layout>
-      <div id='toolbar' tool>
+      <span title>
         Games
-        <core-icon-button halign='right' icon='add' on-tap='{{toggleCreateGame}}'></core-icon-button>
-        <core-icon-button halign='right' icon='search'></core-icon-button>
+        <core-icon icon='chevron-right'></core-icon>
+        arkeros vs hopefulhazel
+      </span>
+      <div actions class='actions'>
+        <paper-icon-button halign='right' icon='add' on-tap='{{toggleCreateGame}}'></paper-icon-button>
+        <paper-icon-button halign='right' icon='search'></paper-icon-button>
       </div>
       <div horizontal layout>
         <div flex id='leftbar' layout vertical>
@@ -64,7 +68,7 @@ dominoes-node {
           </section>
         </div>
         <div id='rightbar' layout vertical>
-          <section flex id='chat' layout vertical>
+          <div class='card' flex id='chat' layout vertical>
             <div flex id='messages'>
               <div class='message' horizontal layout>
                 <a class='thumbnail' href='#'>
@@ -96,9 +100,13 @@ dominoes-node {
                 </div>
               </div>
             </div>
-            <paper-input id='input' label='Write a message...' maxRows='3' multiline></paper-input>
-          </section>
-          <section flex id='log'>
+            <core-toolbar class='actions'>
+              <paper-input flex label='Write a message...'></paper-input>
+              <paper-menu-button icon='hardware:keyboard-alt'></paper-menu-button>
+              <paper-icon-button icon='send'></paper-icon-button>
+            </core-toolbar>
+          </div>
+          <div class='card' flex id='log'>
             eventos del juego...
             <core-icon icon='emoji:😄'></core-icon>
             <core-icon icon='emoji:😃'></core-icon>
@@ -287,7 +295,7 @@ dominoes-node {
             <core-icon icon='emoji:moon-with-face'></core-icon>
             <core-icon icon='emoji:smile'></core-icon>
             <core-icon icon='emoji:Happy-FMC'></core-icon>
-          </section>
+          </div>
         </div>
       </div>
     </base-layout>

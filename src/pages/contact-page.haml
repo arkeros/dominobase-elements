@@ -9,15 +9,30 @@
         %link(rel="stylesheet" href="../styles/contact-page.css")
         / endsmoosh
         %base-layout
-            #toolbar(tool=true)
-                Contact DominoBase
+            %span(title=true)
+                DominoBase
+                %core-icon(icon="chevron-right")
+                Contact
 
-            %section(vertical=true layout=true)
-                %h2 We’re here to help with any questions or comments. If you just want to say hi, that's cool too.
+            .clip(layout=true horizontal=true style="width: 1200px;margin: 0 auto")
+                .left(flex=true)
+                    .card(vertical=true layout=true)
+                        .title We’re here to help with any questions or comments. If you just want to say hi, that's cool too.
+                        %paper-input(label="Name" value="Rafael Arquero Gimeno" floatingLabel=true required=true)
+                        %paper-input(label="Email" type="email" value="rafa.arquero@gmail.com" floatingLabel=true required=true)
+                        %paper-input(label="Subject" floatingLabel=true)
+                        %paper-input(label="Body" required=true floatingLabel=true multiline=true maxRows="5")
+                        %paper-button Send request
 
-                %paper-input(label="Name" value="Rafael Arquero Gimeno" floatingLabel=true required=true)
-                %paper-input(label="Email" type="email" value="rafa.arquero@gmail.com" floatingLabel=true required=true)
-                %paper-input(label="Subject" floatingLabel=true)
-                %paper-input(label="Body" required=true floatingLabel=true multiline=true maxRows="5")
-                %paper-button(label="Send request" raisedButton=true)
+                .right(style="width:304px")
+                    .card(vertical=true layout=true)
+                        .title What's in a great support request?
+                        %p.text
+                            Be succinct, we'll ask if we need more info
+                            The name of the user or repository you’re having troubles with
 
+                    .card(vertical=true layout=true)
+                        .title Reporting a bug?
+                        %p.text
+                            Please submit a new
+                            %a(href="https://github.com/arkeros/dominobase/issues/new") Issue on Github

@@ -1,0 +1,95 @@
+<link href='../../polymer/polymer.html' rel='import'>
+<link href='../../font-roboto/roboto.html' rel='import'>
+<link href='../../core-icons/social-icons.html' rel='import'>
+<link href='../../core-icons/hardware-icons.html' rel='import'>
+<link href='../../core-icons/av-icons.html' rel='import'>
+<link href='../../core-icons/device-icons.html' rel='import'>
+<link href='../../core-scaffold/core-scaffold.html' rel='import'>
+<link href='../../core-header-panel/core-header-panel.html' rel='import'>
+<link href='../../core-menu/core-menu.html' rel='import'>
+<link href='../../core-menu/core-submenu.html' rel='import'>
+<link href='../../paper-item/paper-item.html' rel='import'>
+<link href='../../paper-icon-button/paper-icon-button.html' rel='import'>
+<link href='../../paper-menu-button/paper-menu-button.html' rel='import'>
+<link href='../../google-signin/google-signin.html' rel='import'>
+<polymer-element attributes='user mode' name='material-layout' noscript>
+  <template>
+    <style>:host {
+  font-family: "RobotoDraft", Helvetica, Arial, sans-serif; }
+
+#userinfo {
+  position: relative;
+  height: 144px;
+  background-size: cover;
+  background-position: 50%; }
+  #userinfo .avatar {
+    position: absolute;
+    background-size: cover;
+    top: 1em;
+    left: 1em;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  #userinfo .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+    padding: 0 1em;
+    font-weight: 400;
+    margin: 0 auto;
+    line-height: 1.3em;
+    color: white; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2em;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.8em; }
+  footer .copyright {
+    margin: 24px; }
+</style>
+    <core-scaffold mode='{{mode}}'>
+      <core-header-panel flex navigation>
+        <div id='userinfo' style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')">
+          <div class='avatar' style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')"></div>
+          <div class='title'>
+            Rafael Arquero Gimeno
+            <paper-menu-button halign='right' icon='arrow-drop-down'>
+              <div>Menu Item 1</div>
+              <div>Menu Item 2</div>
+              <div>Menu Item 3</div>
+            </paper-menu-button>
+          </div>
+        </div>
+        <content select='[menu]'></content>
+        <footer>
+          <content select='[footer]'></content>
+        </footer>
+      </core-header-panel>
+      <div id='appbar' tool>
+        <content select='[title]'></content>
+        <content select='[actions]'>
+          <paper-menu-button halign='right' icon='more-vert'>
+            <paper-item label='Refresh'></paper-item>
+            <paper-item label='Send feedback'>
+              <a href='/contact' is='pushstate-anchor'></a>
+            </paper-item>
+            <paper-item label='Settings'></paper-item>
+            <paper-item label='Help'>
+              <a href='/help' is='pushstate-anchor'></a>
+            </paper-item>
+            <!-- %div Sign Out -->
+          </paper-menu-button>
+        </content>
+      </div>
+      <div id='content' layout vertical>
+        <content></content>
+      </div>
+    </core-scaffold>
+  </template>
+</polymer-element>

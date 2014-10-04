@@ -7,17 +7,39 @@
   width: 10em; }
 </style>
     <base-layout>
-      <div id='toolbar' tool>
-        Contact DominoBase
+      <span title>
+        DominoBase
+        <core-icon icon='chevron-right'></core-icon>
+        Contact
+      </span>
+      <div class='clip' horizontal layout style='width: 1200px;margin: 0 auto'>
+        <div class='left' flex>
+          <div class='card' layout vertical>
+            <div class='title'>We’re here to help with any questions or comments. If you just want to say hi, that's cool too.</div>
+            <paper-input floatingLabel label='Name' required value='Rafael Arquero Gimeno'></paper-input>
+            <paper-input floatingLabel label='Email' required type='email' value='rafa.arquero@gmail.com'></paper-input>
+            <paper-input floatingLabel label='Subject'></paper-input>
+            <paper-input floatingLabel label='Body' maxRows='5' multiline required></paper-input>
+            <paper-button>Send request</paper-button>
+          </div>
+        </div>
+        <div class='right' style='width:304px'>
+          <div class='card' layout vertical>
+            <div class='title'>What's in a great support request?</div>
+            <p class='text'>
+              Be succinct, we'll ask if we need more info
+              The name of the user or repository you’re having troubles with
+            </p>
+          </div>
+          <div class='card' layout vertical>
+            <div class='title'>Reporting a bug?</div>
+            <p class='text'>
+              Please submit a new
+              <a href='https://github.com/arkeros/dominobase/issues/new'>Issue on Github</a>
+            </p>
+          </div>
+        </div>
       </div>
-      <section layout vertical>
-        <h2>We’re here to help with any questions or comments. If you just want to say hi, that's cool too.</h2>
-        <paper-input floatingLabel label='Name' required value='Rafael Arquero Gimeno'></paper-input>
-        <paper-input floatingLabel label='Email' required type='email' value='rafa.arquero@gmail.com'></paper-input>
-        <paper-input floatingLabel label='Subject'></paper-input>
-        <paper-input floatingLabel label='Body' maxRows='5' multiline required></paper-input>
-        <paper-button label='Send request' raisedButton></paper-button>
-      </section>
     </base-layout>
   </template>
 </polymer-element>

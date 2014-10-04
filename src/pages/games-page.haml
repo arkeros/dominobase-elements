@@ -1,13 +1,15 @@
 %link(href="../layouts/base-layout.html" rel="import")
 
+%link(rel="import" href="../../paper-fab/paper-fab.html")
+
 %polymer-element(name="games-page" attributes="games" constructor="DominobaseGames")
     %template
         / smoosh
         %link(rel="stylesheet" href="../styles/games-page.css")
         / endsmoosh
         %base-layout
+            %span(title="true") Games
             %section(vertical=true layout=true)
-                %h2 Top started games
                 %div(horizontal=true layout=true wrap=true around-justified=true)
                     %template(repeat="{{game in games}}")
                         .card
@@ -33,6 +35,7 @@
                                 %span
                                     %core-icon(icon="favorite")
                                     {{game.favorites}}
+            %paper-fab(icon="add")
     / smoosh
     %script(src="../scripts/games-page.js")
     / endsmoosh

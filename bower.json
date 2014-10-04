@@ -33,7 +33,7 @@
     },
 
     "dependencies": {
-        "polymer": "*",
+        "polymer": "0.4.2",
         "core-elements": "Polymer/core-elements#*",
         "paper-elements": "Polymer/paper-elements#*",
 

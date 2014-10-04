@@ -8,44 +8,42 @@
         / smoosh
         %link(rel="stylesheet" href="../styles/home-page.css")
         / endsmoosh
-        %base-layout
-            #toolbar(tool=true)
-                Contact DominoBase
+        %base-layout(mode="seamed")
+            %span(title=true) DominoBase
 
             .tiles(fit=true)
-                .tile.double
+                .tile(style="background-color:#FF5252")
+                    .title Play
+                    %core-icon.icon(icon="av:play-arrow")
                     %paper-ripple(fit=true)
-                    .title
-                        Juega
-                .tile(background-color="green")
+                .tile(style="background-color:#1de9b6")
+                    .title Against Computer
+                    %core-icon.icon(icon="hardware:laptop")
                     %paper-ripple(fit=true)
-                    .title
-                        Aprende
-                .tile
+                .tile(style="background-color:#6889ff")
+                    .title Videos
+                    %core-icon.icon(icon="av:videocam")
                     %paper-ripple(fit=true)
-                    .title
-                        Contra el PC
-                .tile
+                .tile(style="background-color:#40c4ff")
+                    .title Openings
+                    %core-icon.icon(icon="search")
                     %paper-ripple(fit=true)
-                    .title
-                        Torneos
-                .tile
+                .tile(style="background-color:#ff6e40")
+                    .title Learn
+                    %core-icon.icon(icon="book")
                     %paper-ripple(fit=true)
-                    .title
-                        Videos
-                .tile
+                .tile(style="background-color:#ffff00")
                     %paper-ripple(fit=true)
-                    .title
-                        Mobile
-                .tile
+                    .title Tactics Trainer
+                .tile(style="background-color:#5af158")
+                    .title Mobile
+                    %core-icon.icon(icon="android")
                     %paper-ripple(fit=true)
-                    .title
-                        Aperturas
-                .tile
+                .tile(style="background-color:#ffd740;color:#616161")
+                    .title Tournaments
+                    %core-icon.icon(icon="social:people")
                     %paper-ripple(fit=true)
-                    .title
-                        Entrenador Táctico
-                .tile
+                .tile(style="background-color:#e040fb")
+                    .title Chess Mentor
+                    %core-icon.icon(icon="social:school")
                     %paper-ripple(fit=true)
-                    .title
-                        Mentor de Ajedrez

@@ -10,19 +10,25 @@
         %link(rel="stylesheet" href="../styles/about-page.css")
         / endsmoosh
         %base-layout
-            #toolbar(tool=true)
-                About DominoBase
+            %span(title=true)
+                DominoBase
+                %core-icon(icon="chevron-right")
+                About
 
-            #header(header=true)
-                .cover
-                %paper-tabs(selected="0")
-                    %paper-tab
-                        %a(href="/about" is="pushstate-anchor") About DominoBase
-                    %paper-tab
-                        %a(href="/team" is="pushstate-anchor") Our Team
-                    %paper-tab
-                        %a(href="/press" is="pushstate-anchor") Press
-                    %paper-tab
-                        %a(href="/jobs" is="pushstate-anchor") Jobs
+            %paper-tabs(selected="0")
+                %paper-tab
+                    About DominoBase
+                    %a(href="/about" is="pushstate-anchor")
+                %paper-tab
+                    Our Team
+                    %a(href="/team" is="pushstate-anchor")
+                %paper-tab
+                    Press
+                    %a(href="/press" is="pushstate-anchor")
+                %paper-tab
+                    Jobs
+                    %a(href="/jobs" is="pushstate-anchor")
 
-            %p.lead DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.
+            .hero
+                %h1.title About DominoBase
+                %p.text DominoBase is the best place to play dominoes with friends, co-workers, classmates, and complete strangers. Over six million people use DominoBase to build amazing things together.
