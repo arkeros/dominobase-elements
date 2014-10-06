@@ -1,5 +1,39 @@
 \:host
+    display: block
     font-family: "RobotoDraft", Helvetica, Arial, sans-serif
+
+    #appbar
+        color: white
+        background: #5677fc
+
+        .actions
+            display: inline-block
+
+
+[drawer]
+    background-color: #fff
+    box-shadow: 1px 0 1px rgba(0, 0, 0, .1)
+
+    ::content footer
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        padding: 2em
+        border-top: 1px solid #e0e0e0
+        font-size: 0.8em
+        line-height: 24px
+
+        .copyright
+            margin: 0
+
+
+[main]
+    height: 100%
+    background-color: #eee
+
+#drawerPanel:not([narrow]) #menuButton
+    display: none
 
 
 #userinfo
@@ -28,16 +62,3 @@
         margin: 0 auto
         line-height: 1.3em
         color: white
-
-
-footer
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
-    padding: 2em
-    border-top: 1px solid #e0e0e0
-    font-size: 0.8em
-
-    .copyright
-        margin: 24px

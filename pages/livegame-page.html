@@ -54,60 +54,20 @@ dominoes-node {
         <core-icon icon='chevron-right'></core-icon>
         arkeros vs hopefulhazel
       </span>
-      <div actions class='actions'>
+      <span actions>
         <paper-icon-button halign='right' icon='add' on-tap='{{toggleCreateGame}}'></paper-icon-button>
         <paper-icon-button halign='right' icon='search'></paper-icon-button>
-      </div>
+      </span>
       <div horizontal layout>
         <div flex id='leftbar' layout vertical>
           <div class='aspect-ratio169'>
             <dominoes-node board='{"tiles": [ [3, 3], [3, 6], [6, 0], [0, 3], [3, 2], [2, 4], [4, 6], [6, 6], [6, 5], [5, 1], [1, 6], [6, 2], [2, 0], [0, 5], [5, 5], [5, 3], [3, 1], [1, 1], [1, 2], [2, 5], [5, 4], [4, 3] ], "root": [1, 6]}' hands='[ [ [0, 0], [1, 0] ], [ [2, 2], [5, 5] ] ]'></dominoes-node>
           </div>
-          <section>
-            <h1>Final del campeonato mundial</h1>
-          </section>
         </div>
         <div id='rightbar' layout vertical>
-          <div class='card' flex id='chat' layout vertical>
-            <div flex id='messages'>
-              <div class='message' horizontal layout>
-                <a class='thumbnail' href='#'>
-                  <img src='https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg'>
-                </a>
-                <div class='inline'>
-                  <a class='author' href='#'>
-                    arkeros
-                  </a>
-                  hola
-                </div>
-              </div>
-              <div class='message' horizontal layout>
-                <a class='thumbnail' href='#'>
-                  <img src='http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/1939840_520061504778249_1525149753_a.jpg'>
-                </a>
-                <div class='inline' flex>
-                  <a class='author' href='#'>hopefulhazel</a>
-                  eii
-                </div>
-              </div>
-              <div class='message' horizontal layout>
-                <a class='thumbnail' href='#'>
-                  <img src='https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg'>
-                </a>
-                <div class='inline' flex>
-                  <a class='author' href='#'>arkeros</a>
-                  voy a ganar jeje
-                </div>
-              </div>
-            </div>
-            <core-toolbar class='actions'>
-              <paper-input flex label='Write a message...'></paper-input>
-              <paper-menu-button icon='hardware:keyboard-alt'></paper-menu-button>
-              <paper-icon-button icon='send'></paper-icon-button>
-            </core-toolbar>
-          </div>
+          <chat-card flex messages='[{"author": {"name": "arkeros", "avatar": "https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg"}, "body": "hola"}, {"author": {"name": "hopefulhazel", "avatar": "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/1939840_520061504778249_1525149753_a.jpg"}, "body": "eiii"}, {"author": {"name": "arkeros", "avatar": "https://lh3.googleusercontent.com/-HU7WoWTJ4s0/UvJSR6qW0kI/AAAAAAAAAG4/1VyCZ1yVHNw/w315-h316-no/942468_10201725807489308_1174446910_n.jpg"}, "body": "voy a ganar"}, {"author": {"name": "hopefulhazel", "avatar": "http://profile.ak.fbcdn.net/hprofile-ak-frc3/t1.0-1/1939840_520061504778249_1525149753_a.jpg"}, "body": "eso habrá que verlo"}]'></chat-card>
           <div class='card' flex id='log'>
-            eventos del juego...
+            <div class='title'>Events</div>
             <core-icon icon='emoji:😄'></core-icon>
             <core-icon icon='emoji:😃'></core-icon>
             <core-icon icon='emoji:😊'></core-icon>
@@ -115,7 +75,7 @@ dominoes-node {
             <core-icon icon='emoji:princess'></core-icon>
             <core-icon icon='emoji:couple-with-heart'></core-icon>
             <core-icon icon='emoji:Aries'></core-icon>
-            <core-icon icon='emoji:kissing-smiling-eyes'></core-icon>
+            <core-icon icon='emoji:kissing-smiling-yees'></core-icon>
             <core-icon icon='emoji:wolf-face'></core-icon>
             <core-icon icon='emoji:Capricorn'></core-icon>
             <core-icon icon='emoji:sweat-smile'></core-icon>

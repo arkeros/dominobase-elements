@@ -64,6 +64,12 @@ gulp.task('build:root', function () {
         .pipe(gulp.dest(config.buildDir + '/'));
 });
 
+gulp.task('build:cards', function () {
+    return gulp.src(config.tmpDir + '/cards/*.html')
+        .pipe($.smoosher())
+        .pipe(gulp.dest(config.buildDir + '/cards/'));
+});
+
 gulp.task('build:pages', function () {
     return gulp.src(config.tmpDir + '/pages/*.html')
         .pipe($.smoosher())
@@ -76,7 +82,7 @@ gulp.task('build:layouts', function () {
         .pipe(gulp.dest(config.buildDir + '/layouts/'));
 });
 
-gulp.task('build', ['build:root', 'build:pages', 'build:layouts']);
+gulp.task('build', ['build:root', 'build:pages', 'build:layouts', 'build:cards']);
 
 
 gulp.task('default', ['clean'], function (cb) {

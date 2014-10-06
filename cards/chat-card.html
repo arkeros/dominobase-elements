@@ -1,0 +1,63 @@
+<link href='../../core-list/core-list.html' rel='import'>
+<link href='../../core-animated-pages/core-animated-pages.html' rel='import'>
+<link href='../../paper-tabs/paper-tabs.html' rel='import'>
+<link href='../../paper-input/paper-input.html' rel='import'>
+<link href='../../paper-button/paper-button.html' rel='import'>
+<polymer-element attributes='messages' class='card' layout name='chat-card' noscript vertical>
+  <template>
+    <style>:host .tile {
+  padding: 8px 0; }
+:host > core-toolbar {
+  font-size: 1em; }
+</style>
+    <core-list data='{{messages}}' flex height='{{messages.length}}'>
+      <template>
+        <div class='tile'>
+          <div class='avatar' style="url('{{model.author.avatar}}')"></div>
+          <p>{{model.body}}</p>
+        </div>
+      </template>
+    </core-list>
+    <core-toolbar class='actions'>
+      <paper-input flex label='Write a message...'></paper-input>
+      <paper-menu-button icon='hardware:keyboard-alt'>
+        <!-- %core-header-panel -->
+        <!-- %core-toolbar -->
+        <!-- %paper-tabs -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="history") -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="hardware:keyboard-alt") -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="maps:terrain") -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="work") -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="maps:directions-car") -->
+        <!-- %paper-tab -->
+        <!-- %core-icon=(icon="polymer") -->
+        <core-animated-pages fit transitions='slide-from-right'>
+          <section id='history'>
+            ultimos
+          </section>
+          <section id='people'>
+            people
+          </section>
+          <section id='nature'>
+            nature
+          </section>
+          <section id='objects'>
+            objects
+          </section>
+          <section id='places'>
+            places
+          </section>
+          <section id='symbols'>
+            symbols
+          </section>
+        </core-animated-pages>
+      </paper-menu-button>
+      <paper-icon-button icon='send'></paper-icon-button>
+    </core-toolbar>
+  </template>
+</polymer-element>

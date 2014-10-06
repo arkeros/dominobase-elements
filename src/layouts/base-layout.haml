@@ -8,7 +8,7 @@
 %polymer-element(name="base-layout" attributes="mode" noscript=true)
     %template
         %material-layout(mode="{{mode}}")
-            %core-menu(menu=true selected="2")
+            %core-menu(navigation=true selected="2")
                 %paper-item(label="Home" icon="home")
                     %a(href="/" is="pushstate-anchor")
                 %core-submenu(label="Games" icon="av:games")
@@ -23,7 +23,7 @@
                     %paper-item(label="Latest Players" icon="hardware:tv")
                     %paper-item(label="Ranking" icon="history")
 
-            %div(footer=true)
+            %footer
                 %p.copyright Rafael Arquero Gimeno ©
 
                 %a(href="/about" is="pushstate-anchor") About
@@ -33,5 +33,8 @@
                 %a(href="/privacy" is="pushstate-anchor") Privacy
                 &
                 %a(href="/terms" is="pushstate-anchor") Terms
+
+            %p
+                {{scrollHeader}}
 
             %content

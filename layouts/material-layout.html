@@ -6,16 +6,45 @@
 <link href='../../core-icons/device-icons.html' rel='import'>
 <link href='../../core-scaffold/core-scaffold.html' rel='import'>
 <link href='../../core-header-panel/core-header-panel.html' rel='import'>
+<link href='../../core-scroll-header-panel/core-scroll-header-panel.html' rel='import'>
 <link href='../../core-menu/core-menu.html' rel='import'>
 <link href='../../core-menu/core-submenu.html' rel='import'>
 <link href='../../paper-item/paper-item.html' rel='import'>
 <link href='../../paper-icon-button/paper-icon-button.html' rel='import'>
 <link href='../../paper-menu-button/paper-menu-button.html' rel='import'>
 <link href='../../google-signin/google-signin.html' rel='import'>
-<polymer-element attributes='user mode' name='material-layout' noscript>
+<polymer-element attributes='user scrollHeader' extends='core-scaffold' name='material-layout' noscript>
   <template>
     <style>:host {
+  display: block;
   font-family: "RobotoDraft", Helvetica, Arial, sans-serif; }
+  :host #appbar {
+    color: white;
+    background: #5677fc; }
+    :host #appbar .actions {
+      display: inline-block; }
+
+[drawer] {
+  background-color: #fff;
+  box-shadow: 1px 0 1px rgba(0, 0, 0, 0.1); }
+  [drawer] ::content footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2em;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.8em;
+    line-height: 24px; }
+    [drawer] ::content footer .copyright {
+      margin: 0; }
+
+[main] {
+  height: 100%;
+  background-color: #eee; }
+
+#drawerPanel:not([narrow]) #menuButton {
+  display: none; }
 
 #userinfo {
   position: relative;
@@ -41,20 +70,9 @@
     margin: 0 auto;
     line-height: 1.3em;
     color: white; }
-
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2em;
-  border-top: 1px solid #e0e0e0;
-  font-size: 0.8em; }
-  footer .copyright {
-    margin: 24px; }
 </style>
-    <core-scaffold mode='{{mode}}'>
-      <core-header-panel flex navigation>
+    <core-drawer-panel disableSwipe='{{disableSwipe}}' drawerWidth='{{drawerWidth}}' id='drawerPanel' narrow='{{narrow}}' responsiveWidth='{{responsiveWidth}}' rightDrawer='{{rightDrawer}}'>
+      <div drawer layout vertical>
         <div id='userinfo' style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')">
           <div class='avatar' style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')"></div>
           <div class='title'>
@@ -66,30 +84,53 @@ footer {
             </paper-menu-button>
           </div>
         </div>
-        <content select='[menu]'></content>
-        <footer>
-          <content select='[footer]'></content>
-        </footer>
-      </core-header-panel>
-      <div id='appbar' tool>
-        <content select='[title]'></content>
-        <content select='[actions]'>
-          <paper-menu-button halign='right' icon='more-vert'>
-            <paper-item label='Refresh'></paper-item>
-            <paper-item label='Send feedback'>
-              <a href='/contact' is='pushstate-anchor'></a>
-            </paper-item>
-            <paper-item label='Settings'></paper-item>
-            <paper-item label='Help'>
-              <a href='/help' is='pushstate-anchor'></a>
-            </paper-item>
-            <!-- %div Sign Out -->
-          </paper-menu-button>
-        </content>
+        <content select='[navigation], nav'></content>
+        <content class='footer' select='footer'></content>
       </div>
-      <div id='content' layout vertical>
-        <content></content>
-      </div>
-    </core-scaffold>
+      <core-scroll-header-panel condenses id='headerPanel' main>
+        <core-toolbar class='{{mode}}' id='appbar'>
+          <template if="{{ mode != 'tall' }}">
+            <core-icon-button icon='menu' id='menuButton' on-tap='{{togglePanel}}'></core-icon-button>
+            <div flex id='title'>
+              <content select='[title]'></content>
+            </div>
+            <content class='actions' select='[actions]'></content>
+            <paper-menu-button halign='right' icon='more-vert'>
+              <paper-item label='Refresh'></paper-item>
+              <paper-item label='Send feedback'>
+                <a href='/contact' is='pushstate-anchor'></a>
+              </paper-item>
+              <paper-item label='Settings'></paper-item>
+              <paper-item label='Help'>
+                <a href='/help' is='pushstate-anchor'></a>
+              </paper-item>
+              <!-- %div Sign Out -->
+            </paper-menu-button>
+          </template>
+          <template if="{{ mode == 'tall' }}">
+            <core-icon-button icon='menu' id='menuButton' on-tap='{{togglePanel}}'></core-icon-button>
+            <div class='clip' flex></div>
+            <content class='actions' select='[actions]'></content>
+            <paper-menu-button halign='right' icon='more-vert'>
+              <paper-item label='Refresh'></paper-item>
+              <paper-item label='Send feedback'>
+                <a href='/contact' is='pushstate-anchor'></a>
+              </paper-item>
+              <paper-item label='Settings'></paper-item>
+              <paper-item label='Help'>
+                <a href='/help' is='pushstate-anchor'></a>
+              </paper-item>
+              <!-- %div Sign Out -->
+            </paper-menu-button>
+            <div class='bottom indent' id='title'>
+              <content select='[title]'></content>
+            </div>
+          </template>
+        </core-toolbar>
+        <div class='content' layout vertical>
+          <content></content>
+        </div>
+      </core-scroll-header-panel>
+    </core-drawer-panel>
   </template>
 </polymer-element>

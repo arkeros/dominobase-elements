@@ -9,6 +9,7 @@
 
 %link(rel="import" href="../../core-scaffold/core-scaffold.html")
 %link(rel="import" href="../../core-header-panel/core-header-panel.html")
+%link(rel="import" href="../../core-scroll-header-panel/core-scroll-header-panel.html")
 %link(rel="import" href="../../core-menu/core-menu.html")
 %link(rel="import" href="../../core-menu/core-submenu.html")
 
@@ -18,13 +19,13 @@
 
 %link(href="../../google-signin/google-signin.html" rel="import")
 
-%polymer-element(name="material-layout" attributes="user mode" noscript=true)
+%polymer-element(name="material-layout" attributes="user scrollHeader" extends="core-scaffold" noscript=true)
     %template
         / smoosh
         %link(rel="stylesheet" href="../styles/material-layout.css")
         / endsmoosh
-        %core-scaffold(mode="{{mode}}")
-            %core-header-panel(navigation=true flex=true)
+        %core-drawer-panel#drawerPanel(narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}")
+            %div(vertical=true layout=true drawer=true)
                 #userinfo(style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')")
                     .avatar(style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')")
                     .title
@@ -33,22 +34,39 @@
                             %div Menu Item 1
                             %div Menu Item 2
                             %div Menu Item 3
-                %content(select="[menu]")
-                %footer
-                    %content(select="[footer]")
+                %content(select="[navigation], nav")
+                %content.footer(select="footer")
 
-            #appbar(tool=true)
-                %content(select="[title]")
 
-                %content(select="[actions]")
-                    %paper-menu-button(icon="more-vert" halign="right")
-                        %paper-item(label="Refresh")
-                        %paper-item(label="Send feedback")
-                            %a(href="/contact" is="pushstate-anchor")
-                        %paper-item(label="Settings")
-                        %paper-item(label="Help")
-                            %a(href="/help" is="pushstate-anchor")
-                        / %div Sign Out
+            %core-scroll-header-panel#headerPanel(main=true condenses=true)
+                %core-toolbar#appbar(class="{{mode}}")
+                    %template(if="{{ mode != 'tall' }}")
+                        %core-icon-button#menuButton(icon="menu" on-tap="{{togglePanel}}")
+                        #title(flex=true)
+                            %content(select="[title]")
+                        %content.actions(select="[actions]")
+                        %paper-menu-button(icon="more-vert" halign="right")
+                            %paper-item(label="Refresh")
+                            %paper-item(label="Send feedback")
+                                %a(href="/contact" is="pushstate-anchor")
+                            %paper-item(label="Settings")
+                            %paper-item(label="Help")
+                                %a(href="/help" is="pushstate-anchor")
+                            / %div Sign Out
+                    %template(if="{{ mode == 'tall' }}")
+                        %core-icon-button#menuButton(icon="menu" on-tap="{{togglePanel}}")
+                        .clip(flex=true)
+                        %content.actions(select="[actions]")
+                        %paper-menu-button(icon="more-vert" halign="right")
+                            %paper-item(label="Refresh")
+                            %paper-item(label="Send feedback")
+                                %a(href="/contact" is="pushstate-anchor")
+                            %paper-item(label="Settings")
+                            %paper-item(label="Help")
+                                %a(href="/help" is="pushstate-anchor")
+                            / %div Sign Out
+                        #title.bottom.indent
+                            %content(select="[title]")
 
-            #content(layout=true vertical=true)
-                %content
+                .content(layout=true vertical=true)
+                    %content

@@ -1,0 +1,51 @@
+%link(href="../../core-list/core-list.html" rel="import")
+%link(href="../../core-animated-pages/core-animated-pages.html" rel="import")
+
+%link(href="../../paper-tabs/paper-tabs.html" rel="import")
+%link(href="../../paper-input/paper-input.html" rel="import")
+%link(href="../../paper-button/paper-button.html" rel="import")
+
+%polymer-element.card(name="chat-card" attributes="messages" noscript=true layout=true vertical=true)
+    %template
+        / smoosh
+        %link(rel="stylesheet" href="../styles/chat-card.css")
+        / endsmoosh
+        %core-list(data="{{messages}}" height="{{messages.length}}" flex=true)
+            %template
+                .tile
+                    .avatar(style="url('{{model.author.avatar}}')")
+                    %p {{model.body}}
+
+        %core-toolbar.actions
+            %paper-input(label="Write a message..." flex=true)
+            %paper-menu-button(icon="hardware:keyboard-alt")
+                / %core-header-panel
+                /     %core-toolbar
+                /         %paper-tabs
+                /             %paper-tab
+                /                 %core-icon=(icon="history")
+                /             %paper-tab
+                /                 %core-icon=(icon="hardware:keyboard-alt")
+                /             %paper-tab
+                /                 %core-icon=(icon="maps:terrain")
+                /             %paper-tab
+                /                 %core-icon=(icon="work")
+                /             %paper-tab
+                /                 %core-icon=(icon="maps:directions-car")
+                /             %paper-tab
+                /                 %core-icon=(icon="polymer")
+                %core-animated-pages(transitions="slide-from-right" fit=true)
+                    %section#history
+                        ultimos
+                    %section#people
+                        people
+                    %section#nature
+                        nature
+                    %section#objects
+                        objects
+                    %section#places
+                        places
+                    %section#symbols
+                        symbols
+
+            %paper-icon-button(icon="send")

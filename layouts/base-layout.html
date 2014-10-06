@@ -6,7 +6,7 @@
 <polymer-element attributes='mode' name='base-layout' noscript>
   <template>
     <material-layout mode='{{mode}}'>
-      <core-menu menu selected='2'>
+      <core-menu navigation selected='2'>
         <paper-item icon='home' label='Home'>
           <a href='/' is='pushstate-anchor'></a>
         </paper-item>
@@ -27,7 +27,7 @@
           <paper-item icon='history' label='Ranking'></paper-item>
         </core-submenu>
       </core-menu>
-      <div footer>
+      <footer>
         <p class='copyright'>Rafael Arquero Gimeno ©</p>
         <a href='/about' is='pushstate-anchor'>About</a>
         <a href='/blog' is='pushstate-anchor'>Blog</a>
@@ -36,7 +36,10 @@
         <a href='/privacy' is='pushstate-anchor'>Privacy</a>
         &
         <a href='/terms' is='pushstate-anchor'>Terms</a>
-      </div>
+      </footer>
+      <p>
+        {{scrollHeader}}
+      </p>
       <content></content>
     </material-layout>
   </template>
