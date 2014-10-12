@@ -101,3 +101,27 @@ gulp.task('dist', function () {
         }))
         .pipe(gulp.dest(config.distDir + '/'));
 });
+
+gulp.task('watch', function () {
+    gulp.watch(config.srcDir + '/**/*.haml', function (event) {
+        runSequence(
+            'haml',
+            'build',
+            'dist'
+        );
+    });
+    gulp.watch(config.srcDir + '/**/*.sass', function (event) {
+        runSequence(
+            'sass',
+            'build',
+            'dist'
+        );
+    });
+    gulp.watch(config.srcDir + '/**/*.coffee', function (event) {
+        runSequence(
+            'coffee',
+            'build',
+            'dist'
+        );
+    });
+});

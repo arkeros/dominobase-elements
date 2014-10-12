@@ -8,6 +8,21 @@
 %polymer-element(name="base-layout" attributes="mode" noscript=true)
     %template
         %material-layout(mode="{{mode}}")
+            %template(if="{{user}}")
+                %core-toolbar#userinfo.tall(header=true style="background-image:url('//www.wikinoticia.com/images2//s1.alt1040.com/files/2012/04/Enigma.jpg')")
+                    .avatar(style="background-image:url('//topnews.in/law/files/alan-turing1212.jpg')")
+                    .title.bottom Alan Turing
+                    .bottom(flex=true)
+                    %paper-menu-button.bottom(icon="arrow-drop-down" halign="right")
+                        %paper-item(label="Sign out")
+                        %paper-item(label="Sign out")
+                        %paper-item(label="Sign out")
+            %template(if="{{!user}}")
+                %core-toolbar(header=true)
+                    .title DominoBase
+                    .clip(flex=true)
+                    %google-signin(clientId="103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com" scopes="profile email https://www.googleapis.com/auth/googletalk")
+
             %core-menu(navigation=true selected="2")
                 %paper-item(label="Home" icon="home")
                     %a(href="/" is="pushstate-anchor")
@@ -19,7 +34,7 @@
                     %paper-item(label="Finished" icon="history")
                 %core-submenu(label="Players" icon="social:person")
                     %paper-item(label="Online" icon="av:play-arrow")
-                        %a(href="/players/arkeros" is="pushstate-anchor")
+                        %a(href="/players/Delacroix" is="pushstate-anchor")
                     %paper-item(label="Latest Players" icon="hardware:tv")
                     %paper-item(label="Ranking" icon="history")
 
@@ -33,8 +48,5 @@
                 %a(href="/privacy" is="pushstate-anchor") Privacy
                 &
                 %a(href="/terms" is="pushstate-anchor") Terms
-
-            %p
-                {{scrollHeader}}
 
             %content

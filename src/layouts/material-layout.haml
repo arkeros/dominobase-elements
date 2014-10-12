@@ -25,15 +25,8 @@
         %link(rel="stylesheet" href="../styles/material-layout.css")
         / endsmoosh
         %core-drawer-panel#drawerPanel(narrow="{{narrow}}" drawerWidth="{{drawerWidth}}" rightDrawer="{{rightDrawer}}" responsiveWidth="{{responsiveWidth}}" disableSwipe="{{disableSwipe}}")
-            %div(vertical=true layout=true drawer=true)
-                #userinfo(style="background-image:url('https://lh6.googleusercontent.com/-IxRknD2180s/UcojKSfeWII/AAAAAAAABkA/IKXa_LVQP0U/s630-fcrop64=1,40551f30ffbac26d/%25C2%25A9%2BAravind%2BKrishnaswamy_20120408-%252818_58_48%2529-sobranes-arch-s2-0387-Edit.jpg')")
-                    .avatar(style="background-image:url('https://lh5.googleusercontent.com/-eCpUySsQ6cw/AAAAAAAAAAI/AAAAAAAAAG4/ZnUlYgSoNwU/photo.jpg?sz=50')")
-                    .title
-                        Rafael Arquero Gimeno
-                        %paper-menu-button(icon="arrow-drop-down" halign="right")
-                            %div Menu Item 1
-                            %div Menu Item 2
-                            %div Menu Item 3
+            %core-header-panel(drawer=true mode="seamed")
+                %content(select="[header], header")
                 %content(select="[navigation], nav")
                 %content.footer(select="footer")
 

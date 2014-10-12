@@ -13,6 +13,9 @@ do (scope = window) ->
             scope.console.log detail
             scope.console.log sender
 
+            @user =
+                oauth:
+                    token: detail.result.access_token
             gapi.client.load 'plus', 'v1', () ->
                 gapi.client.plus.people.get
                     userId: 'me'
@@ -21,18 +24,16 @@ do (scope = window) ->
                     self.user =
                         name: resp.displayName
                         image: resp.image.url
+                        cover: resp.cover.coverPhoto.url
                         email: resp.emails[0].value
                         url: resp.url
                         language: resp.language
                         gender: resp.gender
-                        oauth:
-                            token: detail.result.access_token
+                        oauth: self.user.oauth
                         logged: true
-                    scope.console.log self.user
+                    self.connect()
 
-                    scope.Strophe.SASLPlain.priority = 100
-                    scope.console.log scope.Strophe
-                    xmpp = scope.Strophe.Connection 'ws://echo.websocket.org',
-                        protocol: "ws"
-                    xmpp.connect self.user.email, self.user.oauth.token
-                    scope.console.log xmpp
+        connect: () ->
+            @user.xmpp = new scope.Strophe.Connection '//178.62.195.197:7070/http-bind'
+            @user.xmpp.connect @user.email, @user.oauth.token
+            scope.console.log @user

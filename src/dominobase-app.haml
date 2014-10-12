@@ -4,11 +4,11 @@
 %link(href="cards.html" rel="import")
 %link(href="../app-router/app-router.html" rel="import")
 %link(href="../pushstate-anchor/pushstate-anchor.html" rel="import")
-/ %link(href="strophe.html" rel="import")
+%link(href="strophe.html" rel="import")
 
 %polymer-element(name="dominobase-app" attributes="user" constructor="DominobaseApp" on-google-signin-success="{{SignInGoogle}}")
     %template
-        %app-router
+        %app-router(mode="pushstate")
             %app-route(path="/build/" element="home-page")
             %app-route(path="/dominobase/" element="home-page")
 

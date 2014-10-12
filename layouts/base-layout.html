@@ -6,6 +6,25 @@
 <polymer-element attributes='mode' name='base-layout' noscript>
   <template>
     <material-layout mode='{{mode}}'>
+      <template if='{{user}}'>
+        <core-toolbar class='tall' header id='userinfo' style="background-image:url('//www.wikinoticia.com/images2//s1.alt1040.com/files/2012/04/Enigma.jpg')">
+          <div class='avatar' style="background-image:url('//topnews.in/law/files/alan-turing1212.jpg')"></div>
+          <div class='title bottom'>Alan Turing</div>
+          <div class='bottom' flex></div>
+          <paper-menu-button class='bottom' halign='right' icon='arrow-drop-down'>
+            <paper-item label='Sign out'></paper-item>
+            <paper-item label='Sign out'></paper-item>
+            <paper-item label='Sign out'></paper-item>
+          </paper-menu-button>
+        </core-toolbar>
+      </template>
+      <template if='{{!user}}'>
+        <core-toolbar header>
+          <div class='title'>DominoBase</div>
+          <div class='clip' flex></div>
+          <google-signin clientId='103929871265-fa025f9086fqfi20dgv4v6de8l4q0a7q.apps.googleusercontent.com' scopes='profile email https://www.googleapis.com/auth/googletalk'></google-signin>
+        </core-toolbar>
+      </template>
       <core-menu navigation selected='2'>
         <paper-item icon='home' label='Home'>
           <a href='/' is='pushstate-anchor'></a>
@@ -21,7 +40,7 @@
         </core-submenu>
         <core-submenu icon='social:person' label='Players'>
           <paper-item icon='av:play-arrow' label='Online'>
-            <a href='/players/arkeros' is='pushstate-anchor'></a>
+            <a href='/players/Delacroix' is='pushstate-anchor'></a>
           </paper-item>
           <paper-item icon='hardware:tv' label='Latest Players'></paper-item>
           <paper-item icon='history' label='Ranking'></paper-item>
@@ -37,9 +56,6 @@
         &
         <a href='/terms' is='pushstate-anchor'>Terms</a>
       </footer>
-      <p>
-        {{scrollHeader}}
-      </p>
       <content></content>
     </material-layout>
   </template>
