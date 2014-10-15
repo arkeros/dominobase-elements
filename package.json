@@ -43,7 +43,8 @@
 
     "jshint": "*",
     "coffeelint": "*",
-    "path": "^0.4.9",
+    "path": "*",
+    "del": "*",
     "run-sequence": "*"
   },
   "engines": {

@@ -5,14 +5,15 @@ var gulp            = require('gulp');
 var $               = require('gulp-load-plugins')();
 var runSequence     = require('run-sequence');
 
-var rimraf          = require('rimraf');
 var path            = require('path');
+//https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
+var del             = require('del');
 
 var config = {
-    'srcDir': 'src/',
-    'tmpDir': '.tmp/',
+    'srcDir':   'src/',
+    'tmpDir':   '.tmp/',
     'buildDir': 'build/',
-    'distDir': './'
+    'distDir':  './'
 };
 
 gulp.task('haml', function () {
@@ -36,17 +37,12 @@ gulp.task('sass', function () {
 });
 
 // Clean
-
-gulp.task('clean:build', function (cb) {
-    return rimraf(config.buildDir, cb);
+gulp.task('clean', function (cb) {
+    del([
+        config.tmpDir,
+        config.buildDir
+    ], cb);
 });
-
-gulp.task('clean:tmp', function (cb) {
-    return rimraf(config.tmpDir, cb);
-});
-
-gulp.task('clean', ['clean:tmp', 'clean:build']);
-
 
 // default
 gulp.task('precompile', ['haml', 'sass', 'coffee']);
