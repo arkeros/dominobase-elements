@@ -40,7 +40,7 @@
           token: detail.result.access_token
         }
       };
-      gapi.client.load('plus', 'v1', function() {
+      return gapi.client.load('plus', 'v1', function() {
         gapi.client.plus.people.get({
           userId: 'me'
         }).execute(function(resp) {
@@ -59,15 +59,13 @@
         });
         return self.connect();
       });
-      return {
-        connect: function() {
-          var location;
-          location = '//178.62.195.197:7070/http-bind';
-          this.user.xmpp = new scope.Strophe.Connection(location);
-          this.user.xmpp.connect(this.user.email, this.user.oauth.token);
-          return scope.console.log(this.user);
-        }
-      };
+    },
+    connect: function() {
+      var location;
+      location = '//178.62.195.197:7070/http-bind';
+      this.user.xmpp = new scope.Strophe.Connection(location);
+      this.user.xmpp.connect(this.user.email, this.user.oauth.token);
+      return scope.console.log(this.user);
     }
   });
 })(window);

@@ -34,8 +34,8 @@ do (scope = window) ->
           return
         self.connect()
 
-      connect: () ->
-        location = '//178.62.195.197:7070/http-bind'
-        @user.xmpp = new scope.Strophe.Connection location
-        @user.xmpp.connect @user.email, @user.oauth.token
-        scope.console.log @user
+    connect: () ->
+      location = '//178.62.195.197:7070/http-bind'
+      @user.xmpp = new scope.Strophe.Connection location
+      @user.xmpp.connect @user.email, @user.oauth.token
+      scope.console.log @user

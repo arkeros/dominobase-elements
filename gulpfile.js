@@ -6,36 +6,33 @@ var $               = require('gulp-load-plugins')();
 var runSequence     = require('run-sequence');
 
 var rimraf          = require('rimraf');
+var path            = require('path');
 
 var config = {
-    'srcDir': 'src',
-    'tmpDir': '.tmp',
-    'buildDir': 'build',
-    'distDir': '.'
+    'srcDir': 'src/',
+    'tmpDir': '.tmp/',
+    'buildDir': 'build/',
+    'distDir': './'
 };
 
 gulp.task('haml', function () {
-    return gulp.src(config.srcDir + '/**/*.haml')
+    return gulp.src(path.join(config.srcDir, '**/*.haml'))
         .pipe($.rubyHaml())
         .pipe(gulp.dest(config.tmpDir));
 });
 
 
 gulp.task('coffee', function () {
-    return gulp.src(config.srcDir + '/scripts/**/*.coffee')
+    return gulp.src(path.join(config.srcDir, 'scripts/**/*.coffee'))
         .pipe($.coffee({bare: true}))
-//        .pipe($.closureCompiler({
-//            compilerPath: 'bower_components/closure-compiler/compiler.jar',
-//            fileName: 'build.js'
-//        }))
-        .pipe(gulp.dest(config.tmpDir + '/scripts/'));
+        .pipe(gulp.dest(path.join(config.tmpDir, 'scripts')));
 });
 
 gulp.task('sass', function () {
-    return gulp.src(config.srcDir + '/styles/**/*.sass')
+    return gulp.src(path.join(config.srcDir, 'styles/**/*.sass'))
         .pipe($.rubySass())
         .pipe($.autoprefixer('last 2 versions', '> 1%', 'ie 8', 'ie 7'))
-        .pipe(gulp.dest(config.tmpDir + '/styles/'));
+        .pipe(gulp.dest(path.join(path.join(config.tmpDir, 'styles'))));
 });
 
 // Clean
@@ -55,27 +52,27 @@ gulp.task('clean', ['clean:tmp', 'clean:build']);
 gulp.task('precompile', ['haml', 'sass', 'coffee']);
 
 gulp.task('build:root', function () {
-    return gulp.src(config.tmpDir + '/*.html')
+    return gulp.src(path.join(config.tmpDir, '*.html'))
         .pipe($.smoosher())
-        .pipe(gulp.dest(config.buildDir + '/'));
+        .pipe(gulp.dest(config.buildDir));
 });
 
 gulp.task('build:cards', function () {
-    return gulp.src(config.tmpDir + '/cards/*.html')
+    return gulp.src(path.join(config.tmpDir, 'cards/*.html'))
         .pipe($.smoosher())
-        .pipe(gulp.dest(config.buildDir + '/cards/'));
+        .pipe(gulp.dest(path.join(config.buildDir, 'cards')));
 });
 
 gulp.task('build:pages', function () {
-    return gulp.src(config.tmpDir + '/pages/*.html')
+    return gulp.src(path.join(config.tmpDir, 'pages/*.html'))
         .pipe($.smoosher())
-        .pipe(gulp.dest(config.buildDir + '/pages/'));
+        .pipe(gulp.dest(path.join(config.buildDir, 'pages')));
 });
 
 gulp.task('build:layouts', function () {
-    return gulp.src(config.tmpDir + '/layouts/*.html')
+    return gulp.src(path.join(config.tmpDir, 'layouts/*.html'))
         .pipe($.smoosher())
-        .pipe(gulp.dest(config.buildDir + '/layouts/'));
+        .pipe(gulp.dest(path.join(config.buildDir, 'layouts')));
 });
 
 gulp.task('build', ['build:root', 'build:pages', 'build:layouts', 'build:cards']);
@@ -91,29 +88,29 @@ gulp.task('default', ['clean'], function (cb) {
 });
 
 gulp.task('dist', function () {
-    return gulp.src(config.buildDir + '/**/*.html')
+    return gulp.src(path.join(config.buildDir, '**/*.html'))
         .pipe($.size({
             showFiles: true
         }))
-        .pipe(gulp.dest(config.distDir + '/'));
+        .pipe(gulp.dest(config.distDir));
 });
 
 gulp.task('watch', function () {
-    gulp.watch(config.srcDir + '/**/*.haml', function () {
+    gulp.watch(path.join(config.srcDir, '**/*.haml'), function () {
         runSequence(
             'haml',
             'build',
             'dist'
         );
     });
-    gulp.watch(config.srcDir + '/**/*.sass', function () {
+    gulp.watch(path.join(config.srcDir, '**/*.sass'), function () {
         runSequence(
             'sass',
             'build',
             'dist'
         );
     });
-    gulp.watch(config.srcDir + '/**/*.coffee', function () {
+    gulp.watch(path.join(config.srcDir, '**/*.coffee'), function () {
         runSequence(
             'coffee',
             'build',
