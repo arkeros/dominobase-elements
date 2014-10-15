@@ -1,15 +1,11 @@
 /*global require*/
 'use strict';
 
-var glob            = require('glob');
-var path            = require('path');
-
 var gulp            = require('gulp');
 var $               = require('gulp-load-plugins')();
 var runSequence     = require('run-sequence');
 
-var rimraf = require('rimraf');
-var stylishReporter = require('jshint-stylish');
+var rimraf          = require('rimraf');
 
 var config = {
     'srcDir': 'src',
@@ -103,21 +99,21 @@ gulp.task('dist', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(config.srcDir + '/**/*.haml', function (event) {
+    gulp.watch(config.srcDir + '/**/*.haml', function () {
         runSequence(
             'haml',
             'build',
             'dist'
         );
     });
-    gulp.watch(config.srcDir + '/**/*.sass', function (event) {
+    gulp.watch(config.srcDir + '/**/*.sass', function () {
         runSequence(
             'sass',
             'build',
             'dist'
         );
     });
-    gulp.watch(config.srcDir + '/**/*.coffee', function (event) {
+    gulp.watch(config.srcDir + '/**/*.coffee', function () {
         runSequence(
             'coffee',
             'build',
