@@ -25,8 +25,8 @@
   <script>(function(scope) {
   'use strict';
   return scope.Polymer('dominobase-app', {
-    toggleCreateGame: function(event, detail, sender) {
-      return this.$.game_create.toggle();
+    toggleCreateGame: function() {
+      return this.$.gameCreate.toggle();
     },
     SignInGoogle: function(event, detail, sender) {
       var gapi, self;
@@ -40,8 +40,8 @@
           token: detail.result.access_token
         }
       };
-      return gapi.client.load('plus', 'v1', function() {
-        return gapi.client.plus.people.get({
+      gapi.client.load('plus', 'v1', function() {
+        gapi.client.plus.people.get({
           userId: 'me'
         }).execute(function(resp) {
           scope.console.log(resp);
@@ -56,14 +56,18 @@
             oauth: self.user.oauth,
             logged: true
           };
-          return self.connect();
         });
+        return self.connect();
       });
-    },
-    connect: function() {
-      this.user.xmpp = new scope.Strophe.Connection('//178.62.195.197:7070/http-bind');
-      this.user.xmpp.connect(this.user.email, this.user.oauth.token);
-      return scope.console.log(this.user);
+      return {
+        connect: function() {
+          var location;
+          location = '//178.62.195.197:7070/http-bind';
+          this.user.xmpp = new scope.Strophe.Connection(location);
+          this.user.xmpp.connect(this.user.email, this.user.oauth.token);
+          return scope.console.log(this.user);
+        }
+      };
     }
   });
 })(window);

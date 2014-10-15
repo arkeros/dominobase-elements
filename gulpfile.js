@@ -38,7 +38,7 @@ gulp.task('coffee', function () {
 gulp.task('sass', function () {
     return gulp.src(config.srcDir + '/styles/**/*.sass')
         .pipe($.rubySass())
-        .pipe($.autoprefixer("last 2 versions", "> 1%", "ie 8", "ie 7"))
+        .pipe($.autoprefixer('last 2 versions', '> 1%', 'ie 8', 'ie 7'))
         .pipe(gulp.dest(config.tmpDir + '/styles/'));
 });
 

@@ -13,7 +13,7 @@
         %core-list(data="{{messages}}" height="{{messages.length}}" flex=true)
             %template
                 .tile
-                    .avatar(style="url('{{model.author.avatar}}')")
+                    .avatar(style="url('{{model.avatar}}')")
                     %p {{model.body}}
 
         %core-toolbar.actions
@@ -49,3 +49,6 @@
                         symbols
 
             %paper-icon-button(icon="send")
+    / smoosh
+    %script(src="../scripts/chat-card.js")
+    / endsmoosh
