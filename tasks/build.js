@@ -27,10 +27,10 @@ gulp.task('sass', ['clean'], function () {
 
 gulp.task('build', ['clean', 'haml', 'sass', 'coffee'], function () {
    var folders = [
-        path.join(config.dir.tmp, '*.html'),
-        path.join(config.dir.tmp, 'cards/*.html'),
-        path.join(config.dir.tmp, 'layouts/*.html'),
-        path.join(config.dir.tmp, 'pages/*.html')
+        config.dir.tmp,
+        path.join(config.dir.tmp, 'cards'),
+        path.join(config.dir.tmp, 'layouts'),
+        path.join(config.dir.tmp, 'pages')
    ];
 
    var tasks = folders.map(function(folder) {
@@ -40,7 +40,7 @@ gulp.task('build', ['clean', 'haml', 'sass', 'coffee'], function () {
       // rename to folder.min.js
       // write to output again
 
-      return gulp.src(folder)
+      return gulp.src(path.join(folder, '*.html'))
           .pipe($.smoosher())
           .pipe(gulp.dest(config.dir.build));
    });
