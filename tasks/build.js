@@ -1,6 +1,7 @@
 var gulp            = require('gulp');
 var $               = require('gulp-load-plugins')();
 
+var merge           = require('merge-stream');
 var path            = require('path');
 var config          = require('../config.json');
 
@@ -25,7 +26,24 @@ gulp.task('sass', ['clean'], function () {
 });
 
 gulp.task('build', ['clean', 'haml', 'sass', 'coffee'], function () {
-    return gulp.src(path.join(config.dir.tmp, '*.html'))
-        .pipe($.smoosher())
-        .pipe(gulp.dest(config.dir.build));
+   var folders = [
+        path.join(config.dir.tmp, '*.html'),
+        path.join(config.dir.tmp, 'cards/*.html'),
+        path.join(config.dir.tmp, 'layouts/*.html'),
+        path.join(config.dir.tmp, 'pages/*.html')
+   ];
+
+   var tasks = folders.map(function(folder) {
+      // concat into foldername.js
+      // write to output
+      // minify
+      // rename to folder.min.js
+      // write to output again
+
+      return gulp.src(folder)
+          .pipe($.smoosher())
+          .pipe(gulp.dest(config.dir.build));
+   });
+
+   return merge(tasks);
 });
