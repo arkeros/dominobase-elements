@@ -1,0 +1,8 @@
+{
+    "dir": {
+        "src": "src/",
+        "tmp": ".tmp/",
+        "build": "build/",
+        "dist": "./"
+    }
+}

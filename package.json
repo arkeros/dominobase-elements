@@ -16,7 +16,7 @@
   },
   "scripts": {
     "pre-publish": "gulp && mkdir -p ../dominoes-node_dist && cp -r _dist/* ../dominoes-node_dist/",
-    "test": "gulp && coffeelint src/scripts/*.coffee && jshint .tmp/scripts/*.js"
+    "test": "gulp build && coffeelint src/scripts/*.coffee && jshint .tmp/scripts/*.js"
   },
   "dependencies": {},
   "devDependencies": {
@@ -45,7 +45,7 @@
     "coffeelint": "*",
     "path": "*",
     "del": "*",
-    "run-sequence": "*"
+    "require-dir": "*"
   },
   "engines": {
     "node": ">=0.10.0",
